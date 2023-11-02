@@ -85,29 +85,47 @@ a {
     display: none;
 }
 
-/* Style for the menu bar */
-.menu {
-    background-color: white;
-    border: 2px solid black; /* Add a black border */
-    overflow: hidden;
+/* Add a new style for the menu bar */
+#menu-bar {
+    background-color: white; /* Set the background color to white */
+    border: 2px solid black; /* Add a black border around the menu bar */
+    padding: 10px; /* Add padding to create space around the menu items */
+    text-align: center; /* Center align the menu items */
 }
 
-/* Style for the Home button on the left */
-.menu a.left {
-    float: left;
-    display: block;
-    color: black; /* Change text color to black */
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+/* Style the menu items */
+#menu-bar ul {
+    list-style: none;
+    padding: 0;
 }
 
-/* Style for the Blog and Contact buttons on the right */
-.menu a.right {
-    float: right;
-    display: block;
-    color: black; /* Change text color to black */
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+#menu-bar li {
+    display: inline-block;
+    margin: 0 10px; /* Add space between menu items */
 }
+
+#menu-bar a {
+    text-decoration: none;
+    color: black; /* Set the text color to black */
+    padding: 5px 10px; /* Add padding to the menu items for better spacing */
+    border: 1px solid black; /* Add a border to the menu items */
+    border-radius: 5px; /* Add rounded corners to the menu items */
+}
+
+#menu-bar a:hover {
+    background-color: black; /* Change background color on hover */
+    color: white; /* Change text color on hover */
+}
+
+/* Add a hover effect for the Home button */
+#menu-bar .home-button a:hover {
+    background-color: white; /* Change background color on hover */
+    color: black; /* Change text color on hover */
+}
+
+/* Center the menu bar in the content area */
+#menu-bar {
+    display: flex;
+    justify-content: center;
+}
+
