@@ -1,0 +1,57 @@
+body {
+    font-family: 'Work Sans', Arial, sans-serif;
+    background-color: white;
+    text-align: center; /* Center content */
+    padding: 20px;
+    margin: 0;
+}
+
+.menu {
+    background-color: white;
+    overflow: hidden;
+    text-align: center; /* Center menu items */
+    padding: 10px 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: black;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.menu a:hover {
+    background-color: lightgray;
+}
+
+main {
+    text-align: left; /* Left-align the main content */
+    max-width: 800px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the main content */
+    padding: 20px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+h1, h2, h3 {
+    font-family: 'Work Sans', Arial, sans-serif; /* Use the 'Work Sans' font for headings */
+    text-align: left;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+p {
+    font-family: 'Work Sans', Arial, sans-serif; /* Use 'Work Sans' font for paragraphs */
+    text-align: justify;
+    line-height: 1.5;
+}
+
+a {
+    color: #0078d4; /* Change link color */
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #0056b3;
+}
