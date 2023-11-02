@@ -23,6 +23,12 @@ favicon_img_path: "imgs/favicon.ico"
 
 # Pages
 blog_url: /blog.html
+defaults:
+  -
+    scope:
+      path: "_posts"
+    values:
+      layout: "blog-post"
 
 # Build settings
 markdown: kramdown
