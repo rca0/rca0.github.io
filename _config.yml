@@ -1,6 +1,5 @@
 defaults:
-  -
-    scope:
+  - scope:
       path: "_posts"
     values:
       layout: "post"
@@ -34,4 +33,15 @@ blog_url: /blog.html
 
 # Build settings
 markdown: kramdown
+markdown_ext: "markdown,mkdown,mkdn,mkd,md"
+# Markdown Processing
+kramdown:
+  input: GFM
+  hard_wrap: false
+  auto_ids: true
+  footnote_nr: 1
+  entity_output: as_char
+  toc_levels: 1..6
+  smart_quotes: lsquo,rsquo,ldquo,rdquo
+  enable_coderay: false
 permalink: pretty
