@@ -87,7 +87,8 @@ a {
 
 /* Style for the menu bar */
 .menu {
-    background-color: #333;
+    background-color: white;
+    border: 2px solid black; /* Add a black border */
     overflow: hidden;
 }
 
@@ -95,7 +96,7 @@ a {
 .menu a.left {
     float: left;
     display: block;
-    color: white;
+    color: black; /* Change text color to black */
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
@@ -105,7 +106,7 @@ a {
 .menu a.right {
     float: right;
     display: block;
-    color: white;
+    color: black; /* Change text color to black */
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
