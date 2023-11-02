@@ -18,6 +18,12 @@ permalink: /
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
     </head>
     <body>
+        <div class="menu">
+            <a class="left" href="/">Home</a>
+            <a class="right" href="{{ site.baseurl }}{{ site.blog_url }}">Blog</a>
+            <a class="right" href="mailto:{{ site.email }}">Contact</a>
+        </div>
+        
         <div class="content">
             {% if site.front_img %}
             <img src="{{ site.front_img_path }}" id="fullscreen">

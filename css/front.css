@@ -1,13 +1,14 @@
 body {
-    font-family: 'Open Sans',Helvetica,Arial,sans-serif;
+    font-family: 'Open Sans', Helvetica, Arial, sans-serif;
     background-color: white;
-    position: absolute; 
+    position: absolute;
     top: 0;
     bottom: 0;
     right: 0;
     left: 0;
     margin: 0;
 }
+
 #fullscreen {
     z-index: -999;
     min-height: 100%;
@@ -18,12 +19,14 @@ body {
     top: 0;
     left: 0;
 }
+
 #avatar {
     height: 180px;
     border-radius: 100%;
     border: 5px solid black;
     margin-bottom: 40px;
 }
+
 h1 {
     color: black;
     font-weight: bold;
@@ -32,21 +35,25 @@ h1 {
     font-family: 'Open Sans';
     margin: -10px 0;
 }
+
 h3 {
     color: black;
     padding-bottom: 20px;
     font-weight: thin;
 }
+
 .content {
     padding-top: 100px;
     padding-bottom: 40px;
     background-color: white;
     text-align: center;
 }
+
 ul {
     list-style: none;
     padding: 0;
 }
+
 li {
     border-radius: 100%;
     border: 2px solid black;
@@ -57,6 +64,7 @@ li {
     width: 65px;
     height: 65px;
 }
+
 li:hover {
     color: black;
     text-decoration: none;
@@ -66,59 +74,39 @@ li:hover {
     text-decoration: none;
     background-color: white;
 }
+
 a {
     color: black;
     padding: 15px;
     text-decoration: none;
 }
+
 .description {
     display: none;
 }
 
-@media (max-width: 450px) {
-ul {
-    text-align: center;
+/* Style for the menu bar */
+.menu {
+    background-color: #333;
+    overflow: hidden;
 }
-li {
-    border-radius: 0%;
-    border: none;
-    color: black;
-    margin: 8px;
+
+/* Style for the Home button on the left */
+.menu a.left {
+    float: left;
     display: block;
-    list-style: none;
-    margin: 10px 0px;
+    color: white;
     text-align: center;
-    height: auto;
-    width: auto;
-}
-li:hover {
-    background-color: none;
-    transition: none;
-}
-a {
-    text-align: justify;
-    border: 2px solid black;
-    border-radius: 5px;
-    color: black;
-    padding: 15px;
-    padding-left: 30px;
-    width: 70%;
-}
-a:hover {
-    -webkit-transition: 500ms;
-    -moz-transition: 500ms;
-    transition: 500ms;
-    background-color: white;
-    color: black;
+    padding: 14px 16px;
     text-decoration: none;
 }
-.description {
-    display: inline-block;
-    color: black;
-    font-family: Arial;
-    margin-left: 40px;
-}
-.content {
-    padding-top: 60px;
-}
+
+/* Style for the Blog and Contact buttons on the right */
+.menu a.right {
+    float: right;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
 }
