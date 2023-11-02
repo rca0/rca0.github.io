@@ -10,17 +10,10 @@
     <div class="menu">
         <a class="left" href="/">Home</a>
         <a class="right" href="mailto:{{ site.email }}">Contact</a>
+        <a class="right" href="{{ site.baseurl }}{{ site.blog_url }}">Blog</a>
     </div>
     <main>
-        <div class="post-cards">
-            {% for post in site.posts %}
-                <div class="post-card">
-                    <h3><a href="{{ post.url }}" target="_blank">{{ post.title }}</a></h3>
-                    <p class="post-date">Published on {{ post.date | date: "%Y-%m-%d" }}</p>
-                    {{ post.content | markdownify }}
-                </div>
-            {% endfor %}
-        </div>
+        {{ content }}
     </main>
 </body>
 </html>

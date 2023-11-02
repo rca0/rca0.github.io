@@ -1,6 +1,14 @@
+defaults:
+  -
+    scope:
+      path: "_posts"
+    values:
+      layout: "post"
+
 # Site settings
 name: Ruan C. Arcega
-description: "DevOps - Site Reliability Engineer"
+title: ruanc.dev
+description: "DevOps Engineer"
 url: "https://ruanc.dev"
 
 # Delete the lines you don't need
@@ -23,12 +31,6 @@ favicon_img_path: "imgs/favicon.ico"
 
 # Pages
 blog_url: /blog.html
-defaults:
-  -
-    scope:
-      path: "_posts"
-    values:
-      layout: "blog-post"
 
 # Build settings
 markdown: kramdown
