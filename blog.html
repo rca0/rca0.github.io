@@ -9,16 +9,14 @@
 <body>
     <div class="menu">
         <a class="left" href="/">Home</a>
-        <a class="right" href="mailto:{{ site.email }}">Contact</a>
     </div>
     <main>
-        {{ content }}
         <div class="post-cards">
             {% for post in site.posts %}
                 <div class="post-card">
-                    <h3><a href="{{ post.url }}">{{ post.title }}</a></h3>
+                    <h3><a href="{{ post.url }}" target="_blank">{{ post.title }}</a></h3>
                     <p class="post-date">Published on {{ post.date | date: "%Y-%m-%d" }}</p>
-                    <p>{{ post.excerpt }}</p>
+                    {{ post.content | markdownify }}
                 </div>
             {% endfor %}
         </div>
