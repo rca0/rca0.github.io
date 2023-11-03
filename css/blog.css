@@ -1,8 +1,10 @@
 /* Style for the container */
 .container {
-    background-color: #f7f7f7; /* Same background color as the table */
+    background-color: #f0f8ff; /* Light blue background color */
     text-align: center; /* Center the container content */
     padding: 20px;
+    margin: 0 auto; /* Center the container horizontally */
+    max-width: 800px; /* Set a maximum width for the container */
 }
 
 /* Style for the list of beautiful items */
@@ -25,6 +27,11 @@
     font-size: 18px; /* Set font size for item titles */
     font-weight: bold;
     margin: 10px 0;
+}
+
+.item-title a {
+    color: #404040; /* Silver black color for links */
+    text-decoration: none; /* Remove underline from links */
 }
 
 .item-description {
