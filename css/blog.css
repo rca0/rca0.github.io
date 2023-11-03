@@ -1,6 +1,9 @@
+.main-blog {
+    background-color: #f9f9f9; 
+}
+
 /* Style for the container */
 .container {
-    background-color: #f9f9f9; /* Light blue background color */
     text-align: center; /* Center the container content */
     padding: 20px;
     margin: 0 auto; /* Center the container horizontally */
