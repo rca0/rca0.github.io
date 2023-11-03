@@ -1,3 +1,10 @@
+/* Style for the container */
+.container {
+    background-color: #f7f7f7; /* Same background color as the table */
+    text-align: center; /* Center the container content */
+    padding: 20px;
+}
+
 /* Style for the list of beautiful items */
 .item-list {
     list-style: none;
@@ -7,7 +14,6 @@
 
 .item {
     margin: 10px 0;
-    background-color: #f7f7f7; /* Add a light background color to each item */
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 20px;
