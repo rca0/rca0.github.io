@@ -1,5 +1,5 @@
 .container {
-    background-color: #f7f7f7; /* Light blue background color */
+    background-color: #ffffff; /* Light blue background color */
     padding: 20px;
     text-align: center;
     width: 100%; /* Set the width to 100% to extend to the end of the page */
@@ -13,7 +13,6 @@
 
 .item {
     margin: 20px 0; /* Add some margin between items */
-    background-color: #f7f7f7; /* Light background color for each item */
     text-align: center;
     padding: 10px;
 }
