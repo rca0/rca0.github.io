@@ -16,13 +16,15 @@
         <a class="right" href="mailto:{{ site.email }}">Contact</a>
     </div>
     <main>
-        <ul class="post-list">
+        <ul class="item-list">
             {% for post in site.posts %}
-                <li class="post-item">
-                    <a class="post-link" href="{{ post.url }}">
-                        <h3 class="post-title">{{ post.title }}</h3>
-                        <p class="post-date">Published on {{ post.date | date: "%Y-%m-%d" }}</p>
-                    </a>
+                <li class="item">
+                    <div class="item-content"> 
+                        <h3 class="item-title"><a href="{{ post.url }}">
+                            <h3 class="post-title">{{ post.title }}</h3>
+                            <p class="post-date">Published on {{ post.date | date: "%Y-%m-%d" }}</p>
+                        </a></h3>
+                    </div>
                 </li>
             {% endfor %}
         </ul>
