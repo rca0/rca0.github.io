@@ -6,32 +6,13 @@ body {
     margin: 0;
 }
 
-.menu {
-    background-color: white;
-    overflow: hidden;
-    text-align: center; /* Center menu items */
-    padding: 10px 0;
-}
-
-.menu a {
-    text-decoration: none;
-    color: black;
-    padding: 10px 20px;
-    font-weight: bold;
-}
-
-.menu a:hover {
-    background-color: lightgray;
-}
-
 main {
     text-align: left; /* Left-align the main content */
     max-width: 800px; /* Adjust the maximum width as needed */
     margin: 0 auto; /* Center the main content */
     padding: 20px;
     background-color: white;
-    border: 1px solid black;
-    border-radius: 5px;
+    border: none; /* Remove the border */
 }
 
 h1, h2, h3 {
