@@ -4,15 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="{{ 'css/front.css' | relative_url }}"> <!-- Include your main website's CSS -->
     <link rel="stylesheet" href="{{ 'css/post.css' | relative_url }}"> <!-- Include your custom CSS -->
 </head>
 <body>
-    <div class="menu">
-        <a class="left" href="/">Home</a>
-        <a class="right" href="mailto:{{ site.email }}">Contact</a>
-        <a class="right" href="{{ site.baseurl }}{{ site.blog_url }}">Blog</a>
-    </div>
     <main>
         {{ content }}
     </main>
