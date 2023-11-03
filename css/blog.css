@@ -1,46 +1,58 @@
-.main-blog {
-    background-color: #f9f9f9; 
-}
-
-/* Style for the container */
-.container {
-    text-align: center; /* Center the container content */
-    padding: 20px;
-    margin: 0 auto; /* Center the container horizontally */
-    width: 100%; /* Set the width to 100% to extend to the end of the page */
-}
+.main-blog { background-color: #f9f9f9; }
 
 /* Style for the list of beautiful items */
 .item-list {
     list-style: none;
     padding: 0;
-    text-align: center; /* Center the list items */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Center the items horizontally */
+}
+
+.container {
+    background-color: #f9f9f9; 
+    padding: 20px;
+    text-align: center;
+    width: 100%; /* Set the width to 100% to extend to the end of the page */
 }
 
 .item {
-    margin: 10px 0;
+    width: calc(33.33% - 20px); /* Create three columns with a small gap between them */
+    margin: 10px;
+    background-color: #f7f7f7; /* Add a light background color to each item */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
     padding: 20px;
-    max-width: 400px; /* Set a maximum width for each item */
-    margin: 0 auto; /* Center each item horizontally */
+    position: relative; /* Relative positioning for pseudo-elements */
+}
+
+.item::after {
+    content: "";
+    display: block;
+    border-top: 1px solid #ddd; /* Add a horizontal line */
+    position: absolute;
+    bottom: 0;
+    left: 20px; /* Adjust the left position as needed */
+    width: calc(100% - 40px); /* Adjust the width as needed */
+}
+
+.item-content {
+    padding: 20px;
 }
 
 .item-title {
-    font-size: 14px; /* Set font size for item titles */
-    font-weight: bold;
+    font-size: 15px; /* Set font size for item titles */
+    /* font-weight: bold; */
     margin: 10px 0;
-    color: #404040; /* Silver black color for links */
 }
 
 .item-title a {
     color: #404040; /* Silver black color for links */
-    font-size: 14px; /* Set font size for item titles */
-    margin: 10px 0;
+    text-decoration: none; /* Remove underline from links */
 }
 
 .item-description {
+    font-size: 10px; /* Set font size for item descriptions */
     margin: 10px 0;
-}
-
-.item-description p {
-    font-size: 8px; /* Set font size for item descriptions */
 }
