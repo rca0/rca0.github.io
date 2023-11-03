@@ -17,14 +17,15 @@
     <main>
         <ul class="item-list">
             {% for post in site.posts %}
+            <ul class="item-list">
                 <li class="item">
-                    <div class="item-content"> 
+                    <div class="item-content">
                         <h3 class="item-title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
-                        <p class="post-date">Published on {{ post.date | date: "%Y-%m-%d" }}</p>
+                        <p class="item-description">{{ post.excerpt }}</p>
                     </div>
-                </li>
+                </li>            
             {% endfor %}
-        </ul>
+        </ul>  
     </main>
 </body>
 </html>
