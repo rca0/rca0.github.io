@@ -1,0 +1,33 @@
+
+/* Style for the list of beautiful items */
+.item-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between; /* Arrange items in columns with space between them */
+}
+
+.item {
+    width: calc(33.33% - 20px); /* Create three columns with a small gap between them */
+    margin: 10px 0;
+    background-color: #f7f7f7; /* Add a light background color to each item */
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.item-content {
+    padding: 20px;
+}
+
+.item-title {
+    font-size: 18px; /* Set font size for item titles */
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.item-description {
+    font-size: 14px; /* Set font size for item descriptions */
+    margin: 10px 0;
+}
