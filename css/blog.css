@@ -7,8 +7,12 @@
     align-items: center; /* Center items horizontally */
 }
 
+.item-container {
+    width: 50%; /* Adjust the width as needed for the container */
+}
+
 .item {
-    width: 100%; /* Each item takes the full width of the column */
+    width: 100%; /* Each item takes the full width of the container */
     margin: 10px 0;
     background-color: #f7f7f7; /* Add a light background color to each item */
     border: 1px solid #ddd;
