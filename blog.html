@@ -22,7 +22,7 @@
                         <div class="item-content">
                             <h3 class="item-title"><a href="{{ post.url }}">{{ post.title }}</a></h3>
                             <p class="item-description">{{ post.excerpt }}</p>
-                            <p class="item-date">{{ post.date | date: "%Y-%m-%d" }}</p>
+                            <p class="item-date">Posted: {{ post.date | date: "%Y-%m-%d" }}</p>
                         </div>
                     </li>
                 {% endfor %}
