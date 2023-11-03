@@ -119,3 +119,38 @@ a {
 .menu a.left:hover, .menu a.right:hover {
     border-color: black; /* Change the underline color on hover */
 }
+
+/* CSS for Responsive Column Cards */
+.column-card {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.card {
+    width: calc(33.33% - 10px); /* Adjust the width as needed */
+    margin: 5px;
+    padding: 10px;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    text-align: center;
+    transition: transform 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
+    .card {
+        width: calc(50% - 10px); /* Adjust the width for smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .card {
+        width: 100%; /* Adjust the width for mobile screens */
+    }
+}
