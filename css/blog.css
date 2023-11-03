@@ -28,15 +28,19 @@
     font-size: 14px; /* Set font size for item titles */
     font-weight: bold;
     margin: 10px 0;
+    color: #404040; /* Silver black color for links */
 }
 
 .item-title a {
     color: #404040; /* Silver black color for links */
     font-size: 14px; /* Set font size for item titles */
-    text-decoration: none; /* Remove underline from links */
+    margin: 10px 0;
 }
 
 .item-description {
-    font-size: 8px; /* Set font size for item descriptions */
     margin: 10px 0;
+}
+
+.item-description p {
+    font-size: 8px; /* Set font size for item descriptions */
 }
