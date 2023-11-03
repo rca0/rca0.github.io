@@ -16,3 +16,12 @@
     text-align: center;
     padding: 10px;
 }
+
+a {
+    color: #252525; /* Change link color */
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #353535;
+}
