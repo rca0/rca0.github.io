@@ -124,11 +124,11 @@ a {
 .column-card {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-start;
 }
 
 .card {
-    width: calc(33.33% - 10px); /* Adjust the width as needed */
+    flex: 0 0 calc(33.33% - 10px); /* Adjust the width as needed */
     margin: 5px;
     padding: 10px;
     background-color: white;
@@ -136,6 +136,7 @@ a {
     border-radius: 5px;
     text-align: center;
     transition: transform 0.2s;
+    box-sizing: border-box;
 }
 
 .card:hover {
@@ -145,12 +146,12 @@ a {
 /* Media queries for responsiveness */
 @media screen and (max-width: 768px) {
     .card {
-        width: calc(50% - 10px); /* Adjust the width for smaller screens */
+        flex: 0 0 calc(50% - 10px); /* Adjust the width for smaller screens */
     }
 }
 
 @media screen and (max-width: 480px) {
     .card {
-        width: 100%; /* Adjust the width for mobile screens */
+        flex: 0 0 calc(100% - 10px); /* Adjust the width for mobile screens */
     }
 }
