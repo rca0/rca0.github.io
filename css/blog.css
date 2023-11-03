@@ -24,7 +24,7 @@
 }
 
 .item-title {
-    font-size: 18px; /* Set font size for item titles */
+    font-size: 12px; /* Set font size for item titles */
     font-weight: bold;
     margin: 10px 0;
 }
@@ -35,6 +35,6 @@
 }
 
 .item-description {
-    font-size: 14px; /* Set font size for item descriptions */
+    font-size: 10px; /* Set font size for item descriptions */
     margin: 10px 0;
 }
