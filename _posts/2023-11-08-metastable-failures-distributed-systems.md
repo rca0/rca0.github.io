@@ -16,6 +16,7 @@ Then, I started to understand it better; probably I will write another version a
 Metastable failures are a failure patterns in distributed systems. They are an emergent behavior rather than a logic bug, one cannot write a unit or integration test to trigger them; they naturally arise from optimizations and policies that improve behavior, which, in the common case, can have catastrophic effects. A system can run for months or years in a vulnerable state and then get stuck in a mutable state without any increase in load.
 
 Metastable failures manifest in a variety of ways, but the sustaining effect is almost always associated with the exhaustion of some resource.
+
 One behavior that occurs in a system with an uncontrolled source of load is when a trigger causes the system to enter a bad state that persists even when the trigger is removed.
 In this state, the throughput is unusable low, and there is a sustaining effect, often involving work amplification or decreased overall efficiency.
 
@@ -50,6 +51,7 @@ Fast error Paths
 When analyzing metastable failures patterns is that there are often a metrics that is affected by the trigger and that only returns to normal after resolves. 
 * Latency
 * Fraction of requests that timeout
+
 Both of these metrics will spike during the requests surge that follows a network outage, and they won’t recover until after the metastable is resolved.
 
 Follow some characteristics metrics that are observed in production:
