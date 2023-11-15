@@ -7,16 +7,16 @@ date: 2023-11-15
 
 # AWS Network - Public and Private Subnets
 
-Jump to;
+In this post, I will cover the following topics;
 
-- [VPC]()
-- [Subnets]()
-- [Availability Zones]()
-- [Internet Gateway]()
-- [NAT Gateway]()
-- [Route Tables]()
-- [Public Subnets]()
-- [Private Subnets]()
+* VPC
+* Subnets
+* Availability Zones
+* Internet Gateway
+* NAT Gateway
+* Route Tables
+* Public Subnets
+* Private Subnets
 
 Sometimes I like to recycle knowledge, and this is a basic guide to network concepts, enabling you to grasp things quickly when necessary.
 
