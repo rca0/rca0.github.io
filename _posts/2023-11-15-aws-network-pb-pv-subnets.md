@@ -56,13 +56,15 @@ Certainly, there are more combinations of octets that allow you to change the ra
 All those numbers `25{5,4}` represents the host available in your network, to illustrate follow an exemple;
 
 * `10.0.0.0/24`
-- You can have `254` available hosts in this network.
+  - You can have `254` available hosts in this network.
 * `10.0.0.0/16`
-- You can have `65534` available hosts in this network.
+  - You can have `65534` available hosts in this network.
 * `10.0.0.0/8`
-- You can have `16777214` available hosts in this network.
+  - You can have `16777214` available hosts in this network.
 
 I really recommend uses IPCalc to make these calculations more efficiently. https://jodies.de/ipcalc
+
+--- 
 
 ## Subnets
 
@@ -71,6 +73,8 @@ I really recommend uses IPCalc to make these calculations more efficiently. http
 Subnets stand for a range of IP addresses in your VPC. There are many ways to use subnets, and each subnet must reside in a single Availability Zone.
 
 Subnets are utilized to enhance the security and efficiency of network commnunications; you can think of them like a postal codes, used for routing packages from one location to another.
+
+---
 
 ## Availability Zones - AZs
 
@@ -82,7 +86,7 @@ The term Availability Zone refers to a distinct location within a Region, consis
 
 If an availability zone goes down, you have high availability by having another availability zone ready to serve your application.
 
-It is recommended to have at least 3 AZs serving services and instances. If one availability zone goes down, having 3 ensures you only lose 1/3 of your capacity. If you choose use only 2 could result in losing half of your capacity.
+It is recommended to have at least 3 AZs serving services and instances. If one availability zone goes down, having 3 ensures you only lose `1/3` of your capacity. If you choose use only 2 could result in losing half of your capacity.
 
 --- 
 
@@ -99,6 +103,8 @@ Once an Internet Gateway is created, it is attached to your VPC, and then, enabl
 To remove internet access, you can detach the internet gateway from your VPC and then delete it.
 
 There is no charge for an internet gateway, but data transfer charges apply for EC2 instances that use internet gateways.
+
+--- 
 
 ## NAT Gateway
 
@@ -124,11 +130,15 @@ It's crucial to be aware that you can't route traffic to a NAT gateway through a
 
 And you won't be able to create a public NAT gateway if you've exhausted the number of Elastic IP addresses allocated to your account.
 
+--- 
+
 ## Public and Private subnets
 
 Normally, an AWS VPC is structured by Public Subnet and Private Subnet, this means, you have a public subnet for all of your public applications and a private subnet for things that you don't want to be public.
 
 Basically, If a subnet is associated with a route table that has a route to an internet gateway, it's known as a public subnet. If a subnet is associated with a route table that does not have a route to an internet gateway, it's known as a private subnet.
+
+--- 
 
 ## Route Tables
 
@@ -138,12 +148,14 @@ Each Subnet in your VPC is associated with a route table which controls the traf
 
 There is a main default route table created when you create a subnet, and all unassociated subnets use this by default. In this default route table, you will find one route, specifically for local traffic, encompassing all traffic within the VPC.
 
+---
+
 ## Private/Public Route Tables
 
 In this scenario, you need to configure one route table for the public subnet and another for the private subnet, named:
 
-* `rt-subnet-private``
-* `rt-subnet-public``
+* `rt-subnet-private`
+* `rt-subnet-public`
 
 Then, you can associate the public subnet and the private subnets with their respective route tables. It is recommended to associate at least 3 subnets distributed across availability zones.
 
@@ -162,6 +174,8 @@ It's straightforward. In your public route table (`rt-subnet-public``), add a ne
 The destination is set to `0.0.0.0/0`, allowing all IPs to access the internet with the target being the Internet Gateway (`igw-XX`). Your public route table now has a path to the internet gateway.
 
 If you try to launch an EC2 instance in the public subnet, it will have public access over the internet. (Don't forget to create a Security Group allowing SSH protocol access to this instance)
+
+---
 
 ## Private Subnets
 
@@ -182,6 +196,8 @@ First, in your private route table, add a new route with the following settings:
 The destination is again set to `0.0.0.0/0`, allowing all IPs to access the internet, with the target being the NAT Gateway (`nat-XX`).
 
 Now, if you try to update packages within EC2 instances, the communication to the internet will work.
+
+---
 
 # Takeaways
 
