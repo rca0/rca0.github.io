@@ -138,8 +138,6 @@ Normally, an AWS VPC is structured by Public Subnet and Private Subnet, this mea
 
 Basically, If a subnet is associated with a route table that has a route to an internet gateway, it's known as a public subnet. If a subnet is associated with a route table that does not have a route to an internet gateway, it's known as a private subnet.
 
---- 
-
 ## Route Tables
 
 In AWS, a route table is a set of rules that determines where network traffic is directed.
@@ -147,8 +145,6 @@ In AWS, a route table is a set of rules that determines where network traffic is
 Each Subnet in your VPC is associated with a route table which controls the traffic flow between subnets.
 
 There is a main default route table created when you create a subnet, and all unassociated subnets use this by default. In this default route table, you will find one route, specifically for local traffic, encompassing all traffic within the VPC.
-
----
 
 ## Private/Public Route Tables
 
@@ -167,6 +163,7 @@ Now, how can you enable communication from the public subnet to the Internet?
 
 It's straightforward. In your public route table (`rt-subnet-public``), add a new route with the following settings:
 
+| === +
 | Destination | Target |
 | === | === |
 | 0.0.0.0/0 | igw-0000000000 |
@@ -174,8 +171,6 @@ It's straightforward. In your public route table (`rt-subnet-public``), add a ne
 The destination is set to `0.0.0.0/0`, allowing all IPs to access the internet with the target being the Internet Gateway (`igw-XX`). Your public route table now has a path to the internet gateway.
 
 If you try to launch an EC2 instance in the public subnet, it will have public access over the internet. (Don't forget to create a Security Group allowing SSH protocol access to this instance)
-
----
 
 ## Private Subnets
 
@@ -196,8 +191,6 @@ First, in your private route table, add a new route with the following settings:
 The destination is again set to `0.0.0.0/0`, allowing all IPs to access the internet, with the target being the NAT Gateway (`nat-XX`).
 
 Now, if you try to update packages within EC2 instances, the communication to the internet will work.
-
----
 
 # Takeaways
 
