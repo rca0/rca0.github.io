@@ -44,7 +44,10 @@ a:hover {
     color: #0056b3;
 }
 
-tr, td {
-    color: black;
+table {
+    border-collapse: collapse;
 }
   
+td, th {
+    border: 1px solid black;
+}
