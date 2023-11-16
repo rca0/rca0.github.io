@@ -32,9 +32,9 @@ Let's get started
 
 ## VPC
 
-AWS VPC stands for Virtual Private Cloud, which allows you to isolate AWS resources within a logically defined virtual network. The VPC is a virtual network that closely resembles a tradicional network you'd operate in your own data center. After creating this VPC, youo can add subnets.
+AWS VPC stands for Virtual Private Cloud, which allows you to isolate AWS resources within a logically defined virtual network. The VPC is a virtual network that closely resembles a tradicional network you'd operate in your own data center. After creating this VPC, you can add subnets.
 
-A VPC comprises several componets, including;
+A VPC comprises several components, including;
 
 * Subnets
 * Route Tables
