@@ -7,7 +7,7 @@ date: 2023-11-20
 
 # SQL Concepts
 
-For me SQL it is always hard to do when things goes beyond the simple queries (i'm not used to execute SQL in my daily work). Everytime when i need to make complex queries i have to spend a lot of time doing research. Now, i would like to share one thing that has been helping me a lot when i need to use SQL.
+For me SQL it is always hard to do when things goes beyond the simple queries (i'm not used to execute SQL in my daily work). Whenever I need to create complex queries, I find myself spending a significant amount of time on research. Now, i would like to share one thing that has been helping me a lot when i need to use SQL.
 
 One brief introdution about SQL. SQL stands for Structured Query Language, whereas you can access, manipulate  and interacting databases. In this post i will cover relational SQL (RDBMS - Relational Database Management System).
 
