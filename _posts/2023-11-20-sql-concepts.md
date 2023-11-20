@@ -131,7 +131,7 @@ FROM TABLE_A A
         ON A.key = B.key;
 ```
 
-| TABLE_A     |   | TABLE_B    |
+| TABLE_A     | | | TABLE_B    |
 | === | === | === | === | ===  |
 | KEY | VALUE |  | KEY | VALUE |
 | === | ===   |  | === | ===   |        
