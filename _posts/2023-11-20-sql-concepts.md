@@ -197,6 +197,33 @@ FROM TABLE_A A
 | 2 | X2   | Y2   |
 | 4 | NULL | Y3   |
 
+### FULL (OUTER) JOIN
+
+```sql
+SELECT select_list
+FROM TABLE_A A
+    FULL OUTER JOIN TABLE_B B
+        ON A.key = B.key;
+```
+
+|   **TABLE_A**       |      ||    **TABLE_B**   |     |
+|  ===                | ===  |         | ===     | === |
+| **KEY** | **VALUE** |      | **KEY** | **VALUE**     |
+| ===     | ===       |      | ===     | ===           |        
+| X1      | 1         |      | 1       | Y1            |
+| X2      | 2         |      | 2       | Y2            |
+| X3      | 3         |      | 4       | Y3            |
+| NULL    |           |      |         | NULL          |
+
+* Output
+
+| **KEY Y** | **VALUE X** | **VALUE Y** |
+| === | === | === |
+| 1 | X1   | Y1   |
+| 2 | X2   | Y2   |
+| 3 | X3   | NULL |
+| 4 | NULL | Y3   |
+
 ---
 
 # Managing SQL
