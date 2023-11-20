@@ -2,7 +2,7 @@
 layout: post
 title: SQL Concepts
 short-description: One brief introdution about SQL. SQL stands for Structured Query Language, whereas you can access, manipulate  and interacting databases...
-date: 2023-11-XX
+date: 2023-11-20
 ---
 
 # WIP - SQL Concepts
