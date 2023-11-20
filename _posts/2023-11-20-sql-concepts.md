@@ -513,6 +513,30 @@ SELECT c1,c2 FROM table
 WHERE c1 IS [NOT] NULL;
 ```
 
+## Index Manipulation
+
+Indexes are used to quickly locate data without having to search every row in a database table every time said table is accessed. Indexes can be created using one or more columns of a database table, providing the basis for both rapid random lookups and efficient access of ordered records.
+
+* Create a simple index
+
+```sql
+CREATE INDEX index_name 
+ON table_name (column_name_1, column_name_2, ...);
+```
+
+* Create a unique index
+
+```sql
+CREATE UNIQUE INDEX index_name 
+ON table_name (column_name_1, column_name_2, ...);
+```
+
+* Drop a index
+
+```sql
+DROP INDEX table_name.index_name;
+```
+
 ## SQL Intersect, Union, Union All and Except
 
 ![UNION Intersect Except](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/union-intersect-except.png)
