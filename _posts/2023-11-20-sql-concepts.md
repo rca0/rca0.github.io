@@ -124,6 +124,8 @@ The SQL JOIN is a command clause that combines records from two or more tables i
 
 * Differences Between INNER,LEFT,RIGHT and FULL JOIN
 
+![SQL Joins](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/sql-joins.png)
+
 ### INNER
 
 ```sql
@@ -510,6 +512,10 @@ WHERE c1 BETWEEN low and high;
 SELECT c1,c2 FROM table
 WHERE c1 IS [NOT] NULL;
 ```
+
+## SQL Intersect, Union, Union All and Except
+
+![UNION Intersect Except](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/union-intersect-except.png)
 
 ## Takeaways
 
