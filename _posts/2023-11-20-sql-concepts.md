@@ -131,32 +131,11 @@ FROM TABLE_A A
         ON A.key = B.key;
 ```
 
-<div style="display: flex; justify-content: space-between;">
-
-<div style="width: 48%;">
-
-### TABLE_A
-
-| X1 | 1 |
-|----|---|
-| X2 | 2 |
-| X3 | 3 |
-
-</div>
-
-<div style="width: 48%;">
-
-### TABLE_B
-
-| 1 | Y1 |
-|---|----|
-| 2 | Y2 |
-| 3 | Y3 |
-
-</div>
-
-</div>
-
+| TABLE_A |    | TABLE_B |
+| ------- | -- | ------- |
+| X1      | 1  | 1       | Y1 |
+| X2      | 2  | 2       | Y2 |
+| X3      | 3  | 3       | Y3 |
 
 Output: 
 
