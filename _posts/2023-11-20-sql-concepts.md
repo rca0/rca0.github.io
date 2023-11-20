@@ -157,6 +157,7 @@ FROM TABLE_A A
 
 </div>
 
+
 Output: 
 
 | **KEY Y** | **VALUE X** | **VALUE Y** |
