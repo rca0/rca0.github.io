@@ -537,6 +537,25 @@ ON table_name (column_name_1, column_name_2, ...);
 DROP INDEX table_name.index_name;
 ```
 
+## VIEWs
+
+Create a virtual table based on the result-set of a SELECT statement.
+
+```sql
+CREATE VIEW view_name 
+AS SELECT column_name(s) 
+    FROM table_name 
+    WHERE condition;
+```
+
+* Update view
+
+```sql
+UPDATE view_name 
+SET column_1=value_1,column_2=value2,...
+WHERE condition;
+```
+
 ## SQL Intersect, Union, Union All and Except
 
 ![UNION Intersect Except](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/union-intersect-except.png)
