@@ -133,7 +133,7 @@ FROM TABLE_A A
 
 |   **TABLE_A**       |      ||    **TABLE_B**   |     |
 |  ===                | ===  |         | ===     | === |
-| **KEY** | **VALUE** |      | **KEY** | **VALUE**     |
+| **Key** | **Value** |      | **Key** | **Value**     |
 | ===     | ===       |      | ===     | ===           |        
 | X1      | 1         |      | 1       | Y1            |
 | X2      | 2         |      | 2       | Y2            |
@@ -141,7 +141,7 @@ FROM TABLE_A A
 
 * Output
 
-| **KEY Y** | **VALUE X** | **VALUE Y** |
+| **Key Y** | **Value X** | **Value Y** |
 | === | === | === |
 | 1 | X1 | Y1 |
 | 2 | X2 | Y2 |
@@ -157,7 +157,7 @@ FROM TABLE_A A
 
 |   **TABLE_A**       |      ||    **TABLE_B**   |     |
 |  ===                | ===  |         | ===     | === |
-| **KEY** | **VALUE** |      | **KEY** | **VALUE**     |
+| **Key** | **Value** |      | **Key** | **Value**     |
 | ===     | ===       |      | ===     | ===           |        
 | X1      | 1         |      | 1       | Y1            |
 | X2      | 2         |      | 2       | Y2            |
@@ -165,7 +165,7 @@ FROM TABLE_A A
 
 * Output
 
-| **KEY Y** | **VALUE X** | **VALUE Y** |
+| **Key Y** | **Value X** | **Value Y** |
 | === | === | === |
 | 1 | X1 | Y1   |
 | 2 | X2 | Y2   |
@@ -208,7 +208,7 @@ FROM TABLE_A A
 
 |   **TABLE_A**       |      ||    **TABLE_B**   |     |
 |  ===                | ===  |         | ===     | === |
-| **KEY** | **VALUE** |      | **KEY** | **VALUE**     |
+| **Key** | **Value** |      | **Key** | **Value**     |
 | ===     | ===       |      | ===     | ===           |        
 | X1      | 1         |      | 1       | Y1            |
 | X2      | 2         |      | 2       | Y2            |
@@ -217,7 +217,7 @@ FROM TABLE_A A
 
 * Output
 
-| **KEY Y** | **VALUE X** | **VALUE Y** |
+| **Key Y** | **Value X** | **Value Y** |
 | === | === | === |
 | 1 | X1   | Y1   |
 | 2 | X2   | Y2   |
