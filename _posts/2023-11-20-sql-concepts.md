@@ -120,6 +120,8 @@ The SQL JOIN is a command clause that combines records from two or more tables i
 | Right Join | returns all records from the right table (table2), and the matching records from the left table (table1). | 
 | Full Join | returns all records when there is a match in left (table1) or right (table2) table records. |  
 
+# Managing SQL
+
 * Differences Between INNER,LEFT,RIGHT and FULL JOIN
 
 ### INNER
@@ -146,6 +148,8 @@ FROM TABLE_A A
 | 1 | X1 | Y1 |
 | 2 | X2 | Y2 |
 
+---
+
 ### LEFT (OUTER) JOIN
 
 ```sql
@@ -170,6 +174,8 @@ FROM TABLE_A A
 | 1 | X1 | Y1   |
 | 2 | X2 | Y2   |
 | 3 | X2 | NULL |
+
+--- 
 
 ### RIGHT (OUTER) JOIN
 
@@ -196,6 +202,8 @@ FROM TABLE_A A
 | 1 | X1   | Y1   |
 | 2 | X2   | Y2   |
 | 4 | NULL | Y3   |
+
+---
 
 ### FULL (OUTER) JOIN
 
@@ -224,9 +232,166 @@ FROM TABLE_A A
 | 3 | X3   | NULL |
 | 4 | NULL | Y3   |
 
----
+## Managing Tables
 
-# Managing SQL
+* Create new tables with three columns
+
+```sql
+CREATE TABLE table_a (
+    id INT PRIMARY_KEY,
+    name VARCHAR NOT NULL,
+    price INT DEFAULT 0,
+);
+```
+
+* Delete the table from database
+
+```sql
+DROP TABLE table_a;
+```
+
+* Add a new column to the table
+
+```sql
+ALTER TABLE table_name ADD column;
+```
+
+* Drop column c from the table
+
+```sql
+ALTER TABLE table_name DROP COLUMN c;
+```
+
+* Add a constraint
+
+Table constraints allow you to specify more than one column in a PRIMARY KEY, UNIQUE, CHECK, or FOREIGN KEY constraint definition. Column-level constraints (except for check constraints) refer to only one column.
+
+```sql
+ALTER TABLE table_name ADD constraint;
+```
+
+* Drop a constraint
+
+```sql
+ALTER TABLE table_name DROP constraint;
+```
+
+* Rename table from t1 to t2
+
+```sql
+ALTER TABLE t1 RENAME TO t2;
+```
+
+* Rename column c1 to c2
+
+```sql
+ALTER TABLE t1 RENAME c1 to c2;
+```
+
+* Remove all data in a table
+
+```sql
+TRUNCATE TABLE table_name;
+```
+
+## Managing Triggers
+
+An SQL trigger allows you to specify SQL actions that should be executed automatically when a specific event occurs in the database. 
+
+For example, you can use a trigger to automatically update a record in one table whenever a record is inserted into another table.
+
+* Create or modify a trigger
+
+```sql
+CREATE OR MODIFY TRIGGER trigger_name
+WHEN EVENT
+ON table_name TRIGGER_TYPE
+EXECUTE stored_procedure;
+```
+
+## WHEN 
+* BEFORE: invoke before the event occurs.
+* AFTER: invoke after the event occurs.
+
+### EVENT
+* INSERT: invoke for INSERT
+* UPDATE: invoke for UPDATE
+* DELETE: invoke for DELETE
+
+### TRIGGER_TYPE
+* FOR EACH ROW
+* FOR EACH STATEMENT
+
+
+* Create a trigger invoked before a new row is inserted into the person table
+
+```sql
+CREATE TRIGGER before_insert_person
+BEFORE INSERT
+ON person FOR EACH ROW
+EXECUTE stored_procedure;
+```
+
+* Delete a specific trigger
+
+```sql
+DROP TRIGGER trigger_name;
+```
+
+## Modyfing Data
+
+* Insert one row into a table
+
+```sql
+INSERT INTO t(column_list)
+VALUES(value_list);
+```
+
+* Insert multiple rows into a table
+
+```sql
+INSERT INTO t(column_list)
+VALUES (values_list),
+       (values_list), ...;
+```
+
+* Insert rows from t2 into t1
+
+```sql
+INSERT INTO t1(column_list)
+SELECT column_list FROM t2;
+```
+
+* Update new value in the column c1 for all rows
+
+```sql
+UPDATE table_name
+SET c1 = new_value;
+```
+
+* Update values in column c1, c2 that match the condition
+
+```sql
+UPDATE table_name
+SET c1 = new_value,
+    c2 = new_value
+    WHERE condition;
+```
+
+* Delete all data in a table
+
+```sql
+DELETE FROM table;
+```
+
+* Delete subnet of rows in a table
+
+```sql
+DELETE FROM table_name
+WHERE condition;
+```
+
+---
 
 ##  Subqueries
 
@@ -241,6 +406,109 @@ WHERE exp_operation
      (SELECT select_list
         FROM table
      );
+```
+
+## Using SQL Constraints
+
+* Set column 1 (c1) and column 2 (c2) as a primery key
+
+```sql
+CREATE TABLE t(
+    c1 INT, c2 INT, c3 VARCHAR,
+    PRIMARY KEY (c1,c2)
+);
+```
+
+* Set c2 column as a Foreign Key
+
+```sql
+CREATE TABLE t1(
+    c1 INT PRIMARY KEY,
+    c2 INT,
+    FOREIGN KEY (c2) REFERENCES t2(c2)
+);
+```
+
+* Make the values in c1 and c2 unique
+
+```sql
+CREATE TABLE t(
+    c1 INT,
+    c1 INT
+    UNIQUE(c2, c3)
+);
+```
+
+* Ensure c1 > 0 and values in c1 >= c2
+
+```sql
+CREATE TABLE t(
+    c1 INT, c2 INT,
+    CHECK(c1 > 0 AND c1 >= c2)
+);
+```
+
+* Set values in c2 column not NULL
+
+```sql
+CREATE TABLE t(
+    c1 INT PRIMARY KEY,
+    c2 VARCHAR NOT NULL
+);
+```
+
+## Using SQL Operators
+
+* Combine Rows From 2 Queries
+
+```sql
+SELECT c1,c2 FROM table_1
+UNION [ALL]
+SELECT c1,c2 FROM table_2;
+```
+
+* Return the intersection of 2 Queries
+
+```sql
+SELECT c1,c2 FROM table_1
+INTERSECT
+SELECT c1,c2 from table_2;
+```
+
+* Substract a result set from another Rasult Set
+
+```sql
+SELECT c1,c2 FROM table_1
+MINUS
+SELECT c1,c2 FROM table_2;
+```
+
+* Query Rows using Pattern Matching %
+
+```sql
+SELECT c1,c2 FROM table_1
+WHERE c1 [NOT] LIKE pattern;
+```
+
+* Query Rows in A List
+
+```sql
+SELECT c1,c2 FROM table
+WHERE c1 [NOT] IN value_list;
+```
+
+* Query Rows Between 2 values
+
+```sql
+SELECT c1,c2 FROM table
+WHERE c1 BETWEEN low and high;
+```
+
+* Check if Values in a Table is NULL or Not
+
+```sql
+SELECT c1,c2 FROM table
+WHERE c1 IS [NOT] NULL;
 ```
 
 ## Takeaways
