@@ -131,9 +131,19 @@ FROM TABLE_A A
         ON A.key = B.key;
 ```
 
-| TABLE_A | TABLE_B |
-| === | === |
-|<table> <tr><th>X1</th><th>1</th></tr><tr><td>X2</td><td>2</td></tr> <tr><td>X3</td><td>3</td></tr> </table> | <table> <tr><th>1</th><th>Y1</th></tr><tr><td>2</td><td>Y2</td></tr> <th>2</th><th>Y2</th></tr><tr><td>3</td><td>Y3</td></tr> </table>|
+{: .side-by-side-tables}
+
+### TABLE_A
+
+| X1 | 1 |
+| X2 | 2 |
+| X3 | 3 |
+
+### TABLE_B
+
+| 1 | Y1 |
+| 2 | Y2 |
+| 3 | Y3 |
 
 Output: 
 

@@ -25,3 +25,8 @@ a {
 a:hover {
     color: #353535;
 }
+
+.side-by-side-tables {
+    display: flex;
+    justify-content: space-between;
+}
