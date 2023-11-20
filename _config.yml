@@ -54,6 +54,3 @@ blog_url: /blog.html
 markdown: kramdown
 markdown_ext: "markdown,mkdown,mkdn,mkd,md"
 # Markdown Processing
-
-plugins:
-  - jekyll-spaceship
