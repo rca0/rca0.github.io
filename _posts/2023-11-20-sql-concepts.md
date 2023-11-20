@@ -513,4 +513,9 @@ WHERE c1 IS [NOT] NULL;
 
 ## Takeaways
 
-For sure, SQL has so much more statements than i mentioned in this post. As DevOps/Infrastructure Engineer i do not work directly with complex queries and these notes have helped me a lot in my day-to-day life as quick guide for certain situation.
+Certainly, SQL includes many more statements than I mentioned in this post. As a DevOps/Infrastructure Engineer, I don't directly deal with complex queries, and these notes have been a great help in my day-to-day life—a quick guide for certain situations.
+
+While these examples may be easy for many, this note serves as a handy reference for me to consult when I need to ensure that my queries are correct. There are many subjects related to databases that I hope to write about soon. :)
+
+That's all, folks!
+:) 
