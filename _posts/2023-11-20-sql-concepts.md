@@ -5,7 +5,7 @@ short-description: One brief introdution about SQL. SQL stands for Structured Qu
 date: 2023-11-20
 ---
 
-# WIP - SQL Concepts
+# SQL Concepts
 
 For me SQL it is always hard to do when things goes beyond the simple queries (i'm not used to execute SQL in my daily work). Everytime when i need to make complex queries i have to spend a lot of time doing research. Now, i would like to share one thing that has been helping me a lot when i need to use SQL.
 
