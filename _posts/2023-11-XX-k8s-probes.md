@@ -32,20 +32,9 @@ When you need yours systems to detect a faulty condition in your applications an
 
 Working with containers in a distributed systems could be hard to managed, by default, kuberentes starts to send traffic to a Pod when all the containers inside the Pod start, and restarts containers when they crash.
 
-Kuberentes Probes are used to detect:
-* Containers that haven't started yet and can't serve traffic.
-* Containers that are overwhelmed and can't serve additional traffic.
-* Containers that are completely dead and not serving any traffic.
-
-Kubernetes offer 3 types of health checkers.
-
-> StartupProbe
-> LivenessProbe
-> ReadinessProbe
-
 Before we delve into Probes, it's importante to know more about how's pod health checks works. PODs are the smallest deployable units in the Kubernetes World, and they wrap containers and containers host applications. The PodSpec define containers and you can have multi-containers within Pods.
 
-## POD Health Checks
+## PODs Health Checks
 
 |              | **Liveness**          | **Readiness**               |
 | ===          | ===                   | ===                         |
@@ -64,6 +53,32 @@ The probe can returns;
 * **Fail**: the container failed the diagnostic and will restart according to its restart policy.
 * **Unknown**: the diagnostic failed and no action will be taken.
 
+Kuberentes Probes are used to detect:
+* Containers that haven't started yet and can't serve traffic.
+* Containers that are overwhelmed and can't serve additional traffic.
+* Containers that are completely dead and not serving any traffic.
+
+Kubernetes offer 3 types of health checkers:
+> StartupProbe
+> LivenessProbe
+> ReadinessProbe
+
+## StartupProbe
+
+It indicates whether the application within the container is started. Startup Probe has higher priority over the two other probes types.
+
+All other probes are disabled if a startup probe is provided until it succeeds. If the startup probe fails, the kubelet kills the container, and the container is subjected to its restart policy.
+
+Startup probe are useful in situations where your application can take a long time to start, or could occasionaly fail on startup.
+
+Follow an use case where you can fit with Startup Probe;
+
+*Slow Starting Containers*: When the Container application takes a long time to start to reach its normal operating state. Ensure the container doesn't enter a restart loop due to failing healthiness checks before it's finished lauching. 
+
+The Startup Probe feature is supported as beta in Kuberenetes v1.18, it comes to solve slow-start applications, it is much better than increasing `initialDelaySeconds` on `Readiness` or `Liveness` probes.
+
+</DIAGRAM HERE>
+
 ## LivenessProbe
 
 The `LivenessProbe` is used by `Kubelet` to knows when to restart a container. It indicates whether the container is running inside the Pod. E.g. Liveness probes could catch a deadlock, when application is running, but unable to make progress. Restarting a container in such a state can help to make the application more available despite bugs. When your app is dead, Kuberentes removes the Pod and starts a new one to replace it. If a container does not provide a Liveness Probe the default state is success.
@@ -71,8 +86,6 @@ The `LivenessProbe` is used by `Kubelet` to knows when to restart a container. I
 In a simple words, if the health check application is not working, By using a Liveness Probe, Kuberentes detects that the application is no longer serving requests and restarts the Pod.
 
 ![Liveness Probe](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/livenessprobe.gif)
-
-
 
 ## ReadinessProbe
 
@@ -99,10 +112,22 @@ A side-effect of using Readiness Probe is that they can increase the time it tak
 
 
 
-## Examples
+## Examples of Probes Declarations e.g (pod.yaml)
 
+* StartupProbe
 
-## Declaration e.g (pod.yaml)
+```yaml
+startupProbe:
+    httpGet:                             # make an HTTP request
+        path: /healthz                   # endpoint to hit
+        port: 8080                       # port to use
+        scheme: HTTP                     # or HTTPS
+    failureThreshold: 3                  # how many failures to accept before failing
+    timeoutSeconds: 1                    # how long to wait for a response
+    initialDelaySeconds: 3               # how long to wait before checking
+    periodSeconds: 3                     # how long to wait between checks
+    successThreshold: 1                  # how many successes to hit before accepting
+```
 
 * LivenessProbe
 
@@ -135,6 +160,31 @@ ReadinessProbe:
         path: /_healthz     # endpoint to hit
         port: 8080          # port to use
         scheme: HTTP        # or HTTPS
+...
+```
+
+* More use cases with `exec` command, `tcpSocket` and `httpGet` with `httpHeaders`:
+
+
+```yaml
+# You can just define the probes {ReadinessProbe|LivenessProbe|StartupProbe}
+...
+    exec:
+        command:
+        - cat
+        - /etc/nginx/nginx.conf
+...
+    tcpSocket:
+        host:
+        port: 80
+...
+    httpGet:               
+        path: /_healthz     
+        port: 8080          
+        scheme: HTTP        
+        httpHeaders:  # An array of headers defined as header/value tuples
+            - name: Host                 
+              value: myapplication1.com
 ...
 ```
 
