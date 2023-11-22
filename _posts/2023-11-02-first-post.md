@@ -1,7 +1,7 @@
 ---
 layout: post
 title: First Blog Post
-short-description: My first blog post, where I decided to write about things that came to my mind...
+short_description: My first blog post, where I decided to write about things that came to my mind...
 date: 2023-11-02
 ---
 
