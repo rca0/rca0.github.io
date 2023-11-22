@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Metastable Failures in Distributed Systems
-short-description: This is my first comment, thought, compilation of content about the paper Metastable Failures in Distributed Systems...
+short_description: This is my first comment, thought, compilation of content about the paper Metastable Failures in Distributed Systems...
 date: 2023-11-08
 ---
 

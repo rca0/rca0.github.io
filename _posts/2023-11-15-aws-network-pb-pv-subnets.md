@@ -1,7 +1,7 @@
 ---
 layout: post
 title: AWS Network - Public and Private Subnets
-short-description: This post is part of the AWS collection. In my opinion, understanding AWS Network is fundamental for most engineers operating within AWS...
+short_description: This post is part of the AWS collection. In my opinion, understanding AWS Network is fundamental for most engineers operating within AWS...
 date: 2023-11-15
 ---
 
