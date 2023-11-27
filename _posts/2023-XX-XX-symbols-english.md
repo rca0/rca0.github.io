@@ -1,8 +1,8 @@
 ---
 layout: post
 title: Symbols In English
-short-description: ...
-date: 2023-XX-XX
+short-description: I decided to write this short post just to keep these symbols for a quick review when...
+date: 2023-12-01
 ---
 
 # Symbols In English
