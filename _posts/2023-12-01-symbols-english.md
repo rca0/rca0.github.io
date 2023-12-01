@@ -22,7 +22,7 @@ So, I decided to write this short post just to keep these symbols for a quick re
 | ÷    | Divide by             |
 | ?    | Question mark         |
 | \#   | Hashtag               |
-| /    | Forward / Slah / Or   |
+| /    | Forward / Slash / Or  |
 | \[\] | Brackets              |
 | \(\) | Parentheses           |
 | \{\} | Braces                |
