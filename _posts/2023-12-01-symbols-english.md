@@ -12,7 +12,7 @@ The other day, I was explaining my code to a native English speaker, and I was r
 So, I decided to write this short post just to keep these symbols for a quick review when I need them. Obviously, there are some "easy to remember" symbols, but I hope it could help someone :)
 
 | Symbols In English           |
-| ===  | ===                   |
+| ===                          |
 | \+   |  Plus                 |
 | \-   | Minus                 | 
 | \.   | Dot / Point           |    
@@ -22,7 +22,7 @@ So, I decided to write this short post just to keep these symbols for a quick re
 | ÷    | Divide by             |
 | ?    | Question mark         |
 | \#   | Hashtag               |
-| \/   | Forward / Slah / Or   |
+| /    | Forward / Slah / Or   |
 | \[\] | Brackets              |
 | \(\) | Parentheses           |
 | \{\} | Braces                |
