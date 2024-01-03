@@ -1,24 +1,24 @@
+/* General styles */
 .container {
-    background-color: #ffffff; /* Light blue background color */
+    background-color: #ffffff;
     padding: 20px;
     text-align: center;
-    width: 100%; /* Set the width to 100% to extend to the end of the page */
+    width: 100%;
 }
 
-/* Style for the list of beautiful items */
 .item-list {
     list-style: none;
     padding: 0;
 }
 
 .item {
-    margin: 20px 0; /* Add some margin between items */
+    margin: 20px 0;
     text-align: center;
     padding: 10px;
 }
 
 a {
-    color: #252525; /* Change link color */
+    color: #252525;
     text-decoration: underline;
 }
 
@@ -26,27 +26,24 @@ a:hover {
     color: #353535;
 }
 
-/* Style for code blocks */
+/* Code block styles */
 pre {
-    background-color: #000000; /* Black background color */
-    color: #ffffff; /* White text color */
-    border-radius: 5px; /* Rounded corners */
-    padding: 15px; /* Padding inside the code block */
-    overflow: auto; /* Enable horizontal scrolling if needed */
+    background-color: #000000;
+    color: #ffffff;
+    border-radius: 5px;
+    padding: 15px;
+    overflow: auto;
 }
 
-/* Style for code within code blocks */
 code {
-    font-family: 'Courier New', Courier, monospace; /* Use a monospace font */
-    font-size: 14px; /* Set the font size */
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
 }
 
-/* Style for links within code blocks */
 code a {
-    color: #4ae3f4; /* Link color */
+    color: #4ae3f4;
 }
 
-/* Style for hover effect on links within code blocks */
 code a:hover {
-    color: #28a8bb; /* Hovered link color */
+    color: #28a8bb;
 }
