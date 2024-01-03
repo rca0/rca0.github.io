@@ -7,7 +7,7 @@ date: 2024-01-03
 
 # Apache Kafka Tips
 
-![Apache Kafka](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/kafka.jpeg)
+![Apache Kafka](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/kafka.png)
 
 Apache Kafka is an open-source distributed event streaming platform used by thousands of companies for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications.
 
