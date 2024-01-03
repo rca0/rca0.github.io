@@ -32,3 +32,31 @@
 .menu a.left:hover, .menu a.right:hover {
     border-color: black; /* Change the underline color on hover */
 }
+
+/* Code block styles */
+pre {
+    background-color: #f8f8f8;
+    color: #000000;
+    border-radius: 5px;
+    padding: 15px;
+    overflow: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+code {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    color: #000000;
+}
+
+/* Style for links within code blocks */
+code a {
+    color: #007acc;
+}
+
+/* Style for hover effect on links within code blocks */
+code a:hover {
+    color: #005580;
+}
