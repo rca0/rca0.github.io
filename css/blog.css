@@ -25,3 +25,28 @@ a {
 a:hover {
     color: #353535;
 }
+
+/* Style for code blocks */
+pre {
+    background-color: #000000; /* Black background color */
+    color: #ffffff; /* White text color */
+    border-radius: 5px; /* Rounded corners */
+    padding: 15px; /* Padding inside the code block */
+    overflow: auto; /* Enable horizontal scrolling if needed */
+}
+
+/* Style for code within code blocks */
+code {
+    font-family: 'Courier New', Courier, monospace; /* Use a monospace font */
+    font-size: 14px; /* Set the font size */
+}
+
+/* Style for links within code blocks */
+code a {
+    color: #4ae3f4; /* Link color */
+}
+
+/* Style for hover effect on links within code blocks */
+code a:hover {
+    color: #28a8bb; /* Hovered link color */
+}
