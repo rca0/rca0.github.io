@@ -25,25 +25,3 @@ a {
 a:hover {
     color: #353535;
 }
-
-/* Code block styles */
-pre {
-    background-color: #000000;
-    color: #ffffff;
-    border-radius: 5px;
-    padding: 15px;
-    overflow: auto;
-}
-
-code {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 14px;
-}
-
-code a {
-    color: #4ae3f4;
-}
-
-code a:hover {
-    color: #28a8bb;
-}
