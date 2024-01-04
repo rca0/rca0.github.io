@@ -78,8 +78,8 @@ th, td:first-child {
     background-color: #ffffff; /* White background by default */
 }
 
-th b, td b {
-    background-color: #f2f2f2; /* Gray background for text set as bold */
+th:first-child b {
+    background-color: #f2f2f2; /* Gray background for bold text in the first row (titles) */
 }
 
 /* Hover effect on table rows */
