@@ -218,11 +218,22 @@ When executing the command below, messages will be removed up to data prior to t
 /kafka-delete-records.sh --bootstrap-server $kf_brokers --offset-json-file ./file.json
 ```
 
+* Leader election for partitions
+
+Election types
+- `preferred`; the election is only performed if the current leader is not the preferred leader for the topic partition
+- `unclean`; the election is only performed if there are no leader for the topic partition
+
+```bash
+./kafka-leader-election --bootstrap-server $kf_brokers --all-topic-partitions --election-type preferred
+```
+
 * Using Kafka with Authentication
 
 ```bash
 ...<command> --command-config ../config/cluster-with-auth.properties
 ```
+
 
 ## Zookeeper Commands
 
