@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Symbols In English
-short-description: I decided to write this short post just to keep these symbols for a quick review when...
+short_description: I decided to write this short post just to keep these symbols for a quick review when...
 date: 2023-12-01
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Apache Kafka Tips
-short-description: I decided to centralize the Apache Kafka commands and tool tips to help me access them quickly...
+short_description: I decided to centralize the Apache Kafka commands and tool tips to help me access them quickly...
 date: 2024-01-03
 ---
 

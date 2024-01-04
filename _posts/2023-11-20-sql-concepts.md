@@ -53,7 +53,7 @@ A SQL statement is a set of instruction that consists of identifiers, parameters
 The SQL SELECT statement returns a result set of records, from one or more tables. A SELECT statement retrieves zero or more rows from one or more database tables or database views.
 
 | **SELECT** | **Description** | 
-| === | === |
+| --- | --- |
 | ALL | return all columns. |
 | DISTINCT | return only distinct (different) values. |
 | Count() | returns the number of rows that matches a specified criterion. |
@@ -64,15 +64,15 @@ The SQL SELECT statement returns a result set of records, from one or more table
 Aliases are the temporary names given to tables or columns for the purpose of a particular SQL query.
 
 | **ALIAS** | **Description** | 
-| === | === |
-| As | aliases are used to give a table, or a column in a table, a temporary name |
+| ---       | ---             |
+| As        | aliases are used to give a table, or a column in a table, a temporary name |
 
 ## GROUP BY
 
 SQL GROUP BY statement groups rows that have the same values into summary rows, like "find the number of customers in each country. 
 
 | **GROUP BY** | **Description** | 
-| === | === |
+| --- | --- |
 | Group by Column | placing all the rows with the same value of only that particular column in one group. |
 | Having | it filters data after rows are grouped and values are aggregated. | 
 
@@ -81,7 +81,7 @@ SQL GROUP BY statement groups rows that have the same values into summary rows, 
 The ORDER BY command is used to sort the result set in ascending or descending order. The ORDER BY command sorts the result set in ascending order by default.
 
 | **ORDER BY** | **Description** | 
-| === | === |
+| --- | --- |
 | Order by (ASC) | sort the data returned in ascending order. |
 | Order by DESC | sort the data returned in descending order. |
 
@@ -90,7 +90,7 @@ The ORDER BY command is used to sort the result set in ascending or descending o
 SQL functions are pre-written actions that can be called on individual cells, multiple cells in a record or multiple records.
 
 | **FUNCTIONS** | **Description** | 
-| === | === |
+| --- | --- |
 | AVG() | returns the average value of an expression. |
 | SUM() | returns the sum of all values or the sum of only values specified through conditional expressions. | 
 | Count() | returns the number of rows that matches a specified criterion. |
@@ -102,7 +102,7 @@ SQL functions are pre-written actions that can be called on individual cells, mu
 The WHERE clause is used to filter records based on a specific condition.
 
 | **WHERE** | **Description** | 
-| === | === |
+| --- | --- |
 | LIKE | used to determine whether a specific character string matches a specified pattern. | 
 | IN | allows you to specify multiple values in a WHERE clause. The IN operator is a shorthand for multiple OR conditions. | 
 | BETWEEN | allows you to easily test if an expression is within a range of values (inclusive). | 
@@ -115,7 +115,7 @@ The WHERE clause is used to filter records based on a specific condition.
 The SQL JOIN is a command clause that combines records from two or more tables in a database. It is a means of combining data in fields from two tables by using values common to each table.
 
 | **JOINS** | **Description** | 
-| === | === |
+| --- | --- |
 | Inner Join | returns all rows from tables where the key record of one table is equal to the key records of another table. |
 | Left Join | returns all records from the left table (table1), and the matching records from the right table (table2). |
 | Right Join | returns all records from the right table (table2), and the matching records from the left table (table1). | 
@@ -137,9 +137,9 @@ FROM TABLE_A A
 ```
 
 |   **TABLE_A**       |      ||    **TABLE_B**   |     |
-|  ===                | ===  |         | ===     | === |
+|  ---                | ---  |         | ---     | --- |
 | **Key** | **Value** |      | **Key** | **Value**     |
-| ===     | ===       |      | ===     | ===           |        
+| ---     | ---       |      | ---     | ---           |        
 | X1      | 1         |      | 1       | Y1            |
 | X2      | 2         |      | 2       | Y2            |
 | X3      | 3         |      | 3       | Y3            |
@@ -147,7 +147,7 @@ FROM TABLE_A A
 * Output
 
 | **Key Y** | **Value X** | **Value Y** |
-| === | === | === |
+| --- | --- | --- |
 | 1 | X1 | Y1 |
 | 2 | X2 | Y2 |
 
@@ -163,9 +163,9 @@ FROM TABLE_A A
 ```
 
 |   **TABLE_A**       |      ||    **TABLE_B**   |     |
-|  ===                | ===  |         | ===     | === |
+|  ---                | ---  |         | ---     | --- |
 | **Key** | **Value** |      | **Key** | **Value**     |
-| ===     | ===       |      | ===     | ===           |        
+| ---     | ---       |      | ---     | ---           |        
 | X1      | 1         |      | 1       | Y1            |
 | X2      | 2         |      | 2       | Y2            |
 | X3      | 3         |      | 3       | NULL          |
@@ -173,7 +173,7 @@ FROM TABLE_A A
 * Output
 
 | **Key Y** | **Value X** | **Value Y** |
-| === | === | === |
+| --- | --- | --- |
 | 1 | X1 | Y1   |
 | 2 | X2 | Y2   |
 | 3 | X2 | NULL |
@@ -190,9 +190,9 @@ FROM TABLE_A A
 ```
 
 |   **TABLE_A**       |      ||    **TABLE_B**   |     |
-|  ===                | ===  |         | ===     | === |
+|  ---                | ---  |         | ---     | --- |
 | **KEY** | **VALUE** |      | **KEY** | **VALUE**     |
-| ===     | ===       |      | ===     | ===           |        
+| ---     | ---       |      | ---     | ---           |        
 | X1      | 1         |      | 1       | Y1            |
 | X2      | 2         |      | 2       | Y2            |
 | X3      | 3         |      | 4       | Y3            |
@@ -201,7 +201,7 @@ FROM TABLE_A A
 * Output
 
 | **KEY Y** | **VALUE X** | **VALUE Y** |
-| === | === | === |
+| --- | --- | --- |
 | 1 | X1   | Y1   |
 | 2 | X2   | Y2   |
 | 4 | NULL | Y3   |
@@ -218,9 +218,9 @@ FROM TABLE_A A
 ```
 
 |   **TABLE_A**       |      ||    **TABLE_B**   |     |
-|  ===                | ===  |         | ===     | === |
+|  ---                | ---  |         | ---     | --- |
 | **Key** | **Value** |      | **Key** | **Value**     |
-| ===     | ===       |      | ===     | ===           |        
+| ---     | ---       |      | ---     | ---           |        
 | X1      | 1         |      | 1       | Y1            |
 | X2      | 2         |      | 2       | Y2            |
 | X3      | 3         |      | 4       | Y3            |
@@ -229,7 +229,7 @@ FROM TABLE_A A
 * Output
 
 | **Key Y** | **Value X** | **Value Y** |
-| === | === | === |
+| --- | --- | --- |
 | 1 | X1   | Y1   |
 | 2 | X2   | Y2   |
 | 3 | X3   | NULL |
