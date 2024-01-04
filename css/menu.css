@@ -71,11 +71,11 @@ table {
 th, td {
     border: 1px solid #dddddd;
     padding: 10px;
-    text-align: left;
+    text-align: center; 
 }
 
-th {
-    background-color: #f2f2f2;
+th, td:first-child {
+    background-color: #f2f2f2; 
 }
 
 /* Hover effect on table rows */
