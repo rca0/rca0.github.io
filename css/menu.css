@@ -78,7 +78,7 @@ th, td:first-child {
     background-color: #ffffff; /* White background by default */
 }
 
-th:first-child b {
+tr:first-child b {
     background-color: #f2f2f2; /* Gray background for bold text in the first row (titles) */
 }
 
