@@ -60,22 +60,21 @@ code a {
 code a:hover {
     color: #005580;
 }
-
 /* Table styles */
 table {
     border-collapse: collapse;
-    width: 80%; 
-    margin: 20px auto; 
+    width: 80%;
+    margin: 20px auto;
 }
 
 th, td {
     border: 1px solid #dddddd;
     padding: 10px;
-    text-align: center; 
+    text-align: center;
 }
 
-th, td:first-child {
-    background-color: #f2f2f2; 
+tr:first-child th {
+    background-color: #f2f2f2;
 }
 
 /* Hover effect on table rows */
