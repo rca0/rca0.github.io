@@ -73,8 +73,8 @@ th, td {
     text-align: center;
 }
 
-tr:first-child th {
-    background-color: #f2f2f2;
+th, td:first-child {
+    background-color: #f2f2f2; 
 }
 
 /* Hover effect on table rows */
