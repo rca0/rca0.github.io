@@ -60,6 +60,7 @@ code a {
 code a:hover {
     color: #005580;
 }
+
 /* Table styles */
 table {
     border-collapse: collapse;
@@ -74,7 +75,11 @@ th, td {
 }
 
 th, td:first-child {
-    background-color: #f2f2f2; 
+    background-color: #ffffff; /* White background by default */
+}
+
+th b, td b {
+    background-color: #f2f2f2; /* Gray background for text set as bold */
 }
 
 /* Hover effect on table rows */
