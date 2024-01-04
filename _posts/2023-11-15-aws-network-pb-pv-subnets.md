@@ -163,10 +163,9 @@ Now, how can you enable communication from the public subnet to the Internet?
 
 It's straightforward. In your public route table (`rt-subnet-public``), add a new route with the following settings:
 
-| === +
-| Destination | Target |
-| === | === |
-| 0.0.0.0/0 | igw-0000000000 |
+| **Destination** | **Target**     |
+| ===             | ===            |
+| 0.0.0.0/0       | igw-0000000000 |
 
 The destination is set to `0.0.0.0/0`, allowing all IPs to access the internet with the target being the Internet Gateway (`igw-XX`). Your public route table now has a path to the internet gateway.
 
@@ -184,9 +183,9 @@ So, how do you set up internet communication within private subnets?
 
 First, in your private route table, add a new route with the following settings:
 
-| Destination | Target |
-| === | === |
-| 0.0.0.0/0 | nat-0000000000 |
+| **Destination** | **Target**     |
+| ===             | ===            |
+| 0.0.0.0/0       | nat-0000000000 |
 
 The destination is again set to `0.0.0.0/0`, allowing all IPs to access the internet, with the target being the NAT Gateway (`nat-XX`).
 
