@@ -3,6 +3,7 @@ layout: post
 title: Apache Kafka Tips
 short_description: I decided to centralize the Apache Kafka commands and tool tips to help me access them quickly...
 date: 2024-01-03
+updated_at: 2024-01-15
 ---
 
 # Apache Kafka Tips
@@ -26,7 +27,7 @@ When you are using authentication, which is often required for Confluent Cloud c
 `~/kafka_2.12-3.3.2/config/cluster-with-auth.properties`
 ```bash
 security.protocol=SASL_SSL
-sasl.mechanism=PLAIN
+sasl.mechanism=SSL
 sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule required username="<USERNAME-HERE>" password="<PASSWORD-HERE>";
 ```
 
@@ -90,15 +91,13 @@ kafka-topics --bootstrap-server $kf_brokers --create --topic $topic_name --parti
 * List topics
 
 ```bash
-./kafka-topics.sh --zookeeper $zookeper_brokers --list
+./kafka-topics.sh --bootstrap-server $kf_brokers --list
 ```
 
-* Describe topics
+* Describe topic
 
 ```bash
-./kafka-topics --zookeeper $zookeper_brokers --list --exclude-internal 
-
-# --exclude-internal will ignore the "__consumer_offsets" topics
+./kafka-topics --bootstrap-server $kf_brokers --topic $topic_name --describe 
 ```
 
 * Show partitions offsets of a Topic
@@ -110,13 +109,13 @@ kafka-topics --bootstrap-server $kf_brokers --create --topic $topic_name --parti
 * Show specific topic configuration overrides
 
 ```bash
-./kafka-topics.sh --zookeeper $zookeper_brokers --describe --entity-type topics --entity-name $topic_name
+./kafka-topics.sh --bootstrap-server $kf_brokers --describe --entity-type topics --entity-name $topic_name
 ```
 
 * Delete a Topic
 
 ```bash
-./kafka-topics.sh --zookeeper $zookeper_brokers --delete --topic $topic_name
+./kafka-topics.sh --bootstrap-server $kf_brokers --delete --topic $topic_name
 ```
 
 * Remove topic from Consumer Group
