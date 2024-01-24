@@ -3,7 +3,7 @@ layout: post
 title: Apache Kafka Tips
 short_description: I decided to centralize the Apache Kafka commands and tool tips to help me access them quickly...
 date: 2024-01-03
-updated_at: 2024-01-15
+updated_at: 2024-01-24
 ---
 
 # Apache Kafka Tips
@@ -38,28 +38,15 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
     --command-config ~/kafka_2.13-3.4.1/config/cluster-with-auth.properties
 ```
 
-## Kafka Commands
-
-* Produce message to a topic
-
 ```bash
-./kafka-console-producer.sh --broker-list $kf_brokers --topic $topic_name
-
-# from a file
-./kafka-console-producer.sh --broker-list $kf_brokers --topic $topic_name < input-messages.txt
+...<kafka-command-line> --command-config ../config/cluster-with-auth.properties
 ```
 
-* Produce message to a topic using key and value
+--- 
 
-```bash
-kafka-console-producer.sh --broker-list $kf_brokers --topic $topic_name --property parse.key=true 
---property key.separator=:
+# Apache Kafka - Command lines
 
-# e.g.
-# >key:value
-# >foo:bar
-# >anotherKey:another value
-```
+## Topics
 
 * Consume a topic offset
 
@@ -145,28 +132,6 @@ kafka-topics --bootstrap-server $kf_brokers --create --topic $topic_name --parti
 ./kafka-log-dirs.sh --bootstrap-server $kf_brokers --describe  | grep -E "^{"  | jq '[.brokers[].logDirs[].partitions[]] |  sort_by(.size) | map({ (.partition): (.size / (1024*1024*1024) | round | tostring + " GB") })'  | grep GB
 ```
 
-* List Consumer Groups
-
-```bash
-,/kafka-consumer-groups.sh --bootstrap-server $kf_brokers --list
-```
-
-* Describe Consumer Groups
-
-```bash
-./kafka-consumer-groups.sh --bootstrap-server $kf_brokers --describe --group $consumer_group_name --verbose
-```
-
-* Reset offsets to latest
-
-```bash
-# dry-run
-./kafka-consumer-groups.sh --bootstrap-server $kf_brokers --topic $topic_name:$partition_number --group $group_name --reset-offsets --to-latest --dry-run
-
-# execute
-./kafka-consumer-groups.sh --bootstrap-server $kf_brokers --topic $topic_name:$partition_number --group $group_name --reset-offsets --to-latest --execute
-```
-
 * Change topic log retention settings
 
 | **ms**      | **days** |
@@ -227,12 +192,58 @@ Election types
 ./kafka-leader-election --bootstrap-server $kf_brokers --all-topic-partitions --election-type preferred
 ```
 
-* Using Kafka with Authentication
+## Consumer-groups
+
+* List Consumer Groups
 
 ```bash
-...<command> --command-config ../config/cluster-with-auth.properties
+,/kafka-consumer-groups.sh --bootstrap-server $kf_brokers --list
 ```
 
+* List and Describe all Consumer Groups
+
+```bash
+,/kafka-consumer-groups.sh --bootstrap-server $kf_brokers --all-groups --describe
+```
+
+* Describe Consumer Groups
+
+```bash
+./kafka-consumer-groups.sh --bootstrap-server $kf_brokers --describe --group $consumer_group_name --verbose
+```
+
+* Reset offsets to latest
+
+```bash
+# dry-run
+./kafka-consumer-groups.sh --bootstrap-server $kf_brokers --topic $topic_name:$partition_number --group $group_name --reset-offsets --to-latest --dry-run
+
+# execute
+./kafka-consumer-groups.sh --bootstrap-server $kf_brokers --topic $topic_name:$partition_number --group $group_name --reset-offsets --to-latest --execute
+```
+
+## Producer
+
+* Produce message to a topic
+
+```bash
+./kafka-console-producer.sh --broker-list $kf_brokers --topic $topic_name
+
+# from a file
+./kafka-console-producer.sh --broker-list $kf_brokers --topic $topic_name < input-messages.txt
+```
+
+* Produce message to a topic using key and value
+
+```bash
+kafka-console-producer.sh --broker-list $kf_brokers --topic $topic_name --property parse.key=true 
+--property key.separator=:
+
+# e.g.
+# >key:value
+# >foo:bar
+# >anotherKey:another value
+```
 
 ## Zookeeper Commands
 
