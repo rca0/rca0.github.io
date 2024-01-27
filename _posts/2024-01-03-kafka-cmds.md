@@ -3,7 +3,7 @@ layout: post
 title: Apache Kafka Tips
 short_description: I decided to centralize the Apache Kafka commands and tool tips to help me access them quickly...
 date: 2024-01-03
-updated_at: 2024-01-24
+updated_at: 2024-01-27
 ---
 
 # Apache Kafka Tips
@@ -113,18 +113,16 @@ kafka-topics --bootstrap-server $kf_brokers --create --topic $topic_name --parti
 * Change Topic partition number
 
 ```bash
-./kafka-topics.sh --zookeeper $zookeper_brokers --alter --topic $topic_name --partitions $partition_number
-
-# OR
-
 ./kafka-topics.sh --bootstrap-server $kf_brokers --alter --topic $topic_name --partitions $partition_number
 ```
 
 * Find all the partitions where are not in-sync with the Leader
 
 ```bash
-./kafka-topics.sh --zookeeper $zookeper_brokers --describe --under-replicated-partitions
+./kafka-topics.sh --bootstrap-server $kf_brokers --describe --under-replicated-partitions
 ```
+
+_For OLD Kafka version, use `--zookeeper` instead of `--bootstrap-server` argument_
 
 * Get topic size per GB
 
@@ -148,7 +146,7 @@ kafka-topics --bootstrap-server $kf_brokers --create --topic $topic_name --parti
 ./kafka-configs.sh --bootstrap-server $kf_brokers --alter --entity-name $topic_name --entity-type topics --add-config retention.ms=$retention_time
 
 # then validate the topic settings
-./kafka-topics.sh --describe --zookeeper $zookeeper_broker --topic $topic_name
+./kafka-topics.sh --describe --ootstrap-server $kf_brokers --topic $topic_name
 ```
 
 * Purge Topics offsets by retention time ms
@@ -156,7 +154,7 @@ kafka-topics --bootstrap-server $kf_brokers --create --topic $topic_name --parti
 As a workaround, change the retention to one minute. This allows you to purge the offsets quickly, and then you can simply return the retention time to its original setting.
 
 ```bash
-./kafka-configs.sh --zookeeper $zookeeper_broker --alter --entity-type topics --entity-name $topic_name --add-config retention.ms=1000
+./kafka-configs.sh --bootstrap-server $kf_brokers --alter --entity-type topics --entity-name $topic_name --add-config retention.ms=1000
 ```
 
 * Remove Offsets from a Partition of a Topic
@@ -253,28 +251,31 @@ kafka-console-producer.sh --broker-list $kf_brokers --topic $topic_name --proper
 ./zookeeper-shell.sh $zookeeper_broker:2181
 ```
 
-- Get Kafka cluster ID
-
-```bash
-./zookeeper-shell $zookeeper_broker:2181 get /cluster/id
-```
-
 - List brokers in Kafka cluster
 
 ```bash
-ls /brokers/ids
+./zookeeper-shell $zookeeper_broker:2181 ls /brokers/ids
 ```
 
-- Get details of Kafka broker
+- Get Kafka cluster ID
 
 ```bash
-get /brokers/ids/1
+./zookeeper-shell $zookeeper_broker:2181 get /broker/ids/$broker_id
 ```
 
 - Get details of specific topic
 
 ```bash
-get /brokers/topics/$topic_name
+./zookeeper-shell $zookeeper_broker:2181 get /brokers/topics/$topic_name
+```
+
+- Check if zookeeper is healthy or not
+
+```bash
+echo stat | nc $zk_broker 2181
+echo ruok | nc $zk_broker 2181
+echo mntr | nc $zk_broker 2181
+echo isro | nc $zk_broker 2181
 ```
 
 ## Tools - KR
