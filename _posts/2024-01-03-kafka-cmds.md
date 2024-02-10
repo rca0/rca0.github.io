@@ -122,6 +122,49 @@ kafka-topics --bootstrap-server $kf_brokers --create --topic $topic_name --parti
 ./kafka-topics.sh --bootstrap-server $kf_brokers --describe --under-replicated-partitions
 ```
 
+* Reassingment topic partition replicas with json file
+
+```bash
+# Check topic configurations
+./kafka-topics.sh --bootstrap-server $kf_brokers --topic $topic --describe
+```
+
+topic-reassign.json
+```json
+{
+  "version":1,
+  "partitions":[
+    {
+      "topic":"topic-one",
+      "partition":0,
+      "replicas":[1,2,6]
+    },
+    {
+      "topic":"topic-one",
+      "partition":1,
+      "replicas":[1,2,6]
+    },
+    {
+      "topic":"topic-one",
+      "partition":2,
+      "replicas":[1,2,6]
+    }
+  ]
+}
+```
+
+execute kafka reassign partitions command line
+
+```bash
+./kafka-reassign-partitions.sh --bootstrap-server $kf_broker --reassignment-json-file topic-reassign.json --execute
+```
+
+increse topic partitions number to 3
+
+```bash
+./kafka-topics.sh --bootstrap-server $kf_brokers --alter --topic $topic --partitions 3
+```
+
 _For OLD Kafka version, use `--zookeeper` instead of `--bootstrap-server` argument_
 
 * Get topic size per GB
