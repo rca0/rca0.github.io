@@ -3,7 +3,7 @@ layout: post
 title: Apache Kafka Tips
 short_description: I decided to centralize the Apache Kafka commands and tool tips to help me access them quickly...
 date: 2024-01-03
-updated_at: 2024-01-27
+updated_at: 2024-02-13
 ---
 
 # Apache Kafka Tips
@@ -13,6 +13,28 @@ updated_at: 2024-01-27
 Apache Kafka is an open-source distributed event streaming platform used by thousands of companies for high-performance data pipelines, streaming analytics, data integration, and mission-critical applications.
 
 I decided to centralize the Apache Kafka commands and tool tips to help me access them quickly. Therefore, I will cover the main Kafka commands here.
+
+## Concepts
+
+### LEADER
+
+A Leader is the broker/replica accepting produce messages
+
+### FOLLOWER
+
+A Follower is a broker/replica that can join an ISR list and participate of the high watermark (used by the leader when acknowledging messages back to the producer).
+
+### OBSERVER
+
+An Observer is a broker/replica that also has a copy of data for a given topic-partition, and consumers are allowed to read from them even though it is not the leader (know as “Follower Fetching”).
+
+The data is copied asynchronous from the leader such that a producer does not wait on observers to get back an acknowledgment.
+
+By the default Observers do not participate in the ISR list and cannot automatically become the leader if the current leader fails, but if a user manually changes leader assignment then they can participate in the ISR list.
+
+### ISR List
+
+An ISR list (in-sync replicas) includes brokers that have a given topic-partition. The data is copied from the leader to every member of the ISR before the producer gets an acknowledgment. The followers in an ISR can become the leader if the current leader fails.
 
 ## Download 
 
@@ -45,6 +67,20 @@ sasl.jaas.config=org.apache.kafka.common.security.plain.PlainLoginModule require
 --- 
 
 # Apache Kafka - Command lines
+
+## Performance tests
+
+```bash
+time kafka-producer-perf-test --producer-props bootstrap.servers=$kf_brokers \
+    --topic $topic \
+    --num-records $messages \
+    --record-size $size \
+    --throughput $throughput \
+    --print-metrics \
+    enable.idempotence=true \
+    compression.type=snappy \
+    linger.ms=20 
+```
 
 ## Topics
 
@@ -122,7 +158,11 @@ kafka-topics --bootstrap-server $kf_brokers --create --topic $topic_name --parti
 ./kafka-topics.sh --bootstrap-server $kf_brokers --describe --under-replicated-partitions
 ```
 
-* Reassingment topic partition replicas with json file
+* Reassignment Topic Configs
+
+- Change the partitions numbers
+- Add Replicas
+- Add Observers
 
 ```bash
 # Check topic configurations
@@ -137,17 +177,20 @@ topic-reassign.json
     {
       "topic":"topic-one",
       "partition":0,
-      "replicas":[1,2,6]
+      "replicas":[1,2,6],
+      "observers":[2,6]
     },
     {
       "topic":"topic-one",
       "partition":1,
-      "replicas":[1,2,6]
+      "replicas":[1,2,6],
+      "observers":[2,6],
     },
     {
       "topic":"topic-one",
       "partition":2,
-      "replicas":[1,2,6]
+      "replicas":[1,2,6],
+      "observers":[2,6]
     }
   ]
 }
@@ -231,6 +274,20 @@ Election types
 
 ```bash
 ./kafka-leader-election --bootstrap-server $kf_brokers --all-topic-partitions --election-type preferred
+```
+
+Or using JSON FILE
+
+```json
+{"partitions":
+   [
+      {"topic": "topic-name", "partition": 0}
+   ]
+}
+```
+
+```
+# ./kafka-leader-election --bootstrap-server $kf_brokers --election-type preferred --path-to-json-file topic.json
 ```
 
 ## Consumer-groups
