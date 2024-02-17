@@ -82,6 +82,66 @@ time kafka-producer-perf-test --producer-props bootstrap.servers=$kf_brokers \
     linger.ms=20 
 ```
 
+## Kafka-configs
+
+* To add partitions
+
+```bash
+./kafka-configs.sh --bootstrap-server $kf_brokers \
+    --alter \
+    --entity-name $topic_name \
+    --entity-type topics \
+    --add-config \
+    --partitions 6
+```
+
+* To alter Topic Replica Placement
+
+`topic-reg.cfg`
+```json
+{
+    "version": 1,
+    "replicas": [
+        "count": 3,
+        "constraints": {"rack": "us-east-1"}
+    ],
+    "observers": [
+        "count": 3,
+        "constraints": {"rack": "central-us-1"}
+    ]
+}
+```
+
+```bash
+./kafka-configs.sh --bootstrap-server $kf_brokers \
+    --alter \
+    --entity-name $topic_name \
+    --entity-type topics \
+    --replica-placement topic-reg.cfg
+```
+
+* To alter config
+
+```bash
+./kafka-configs.sh --bootstrap-server $kf_brokers \
+    --alter \
+    --entity-name $topic_name \
+    --entity-type topics \
+    --add-config \
+    x=y
+```
+
+* To remove a config
+
+```bash
+./kafka-configs.sh --bootstrap-server $kf_brokers \
+    --alter \
+    --entity-name $topic_name \
+    --entity-type topics \
+    --delete-config \
+    x=y
+```
+
 ## Topics
 
 * Consume a topic offset
