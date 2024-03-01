@@ -171,6 +171,12 @@ kafka-topics --bootstrap-server $kf_brokers --create --topic $topic_name --parti
 # --if-not-exists use this parameter if not exists
 ```
 
+* Create new topic with constraints
+
+```bash
+kafka-topics --bootstrap-server $kf_brokers --create --topic $topic_name --partitions $parition_number --replication-factor $replica_factor --replica-placement /etc/kafka/topic-reg.cfg
+```
+
 * List topics
 
 ```bash
