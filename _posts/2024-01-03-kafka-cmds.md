@@ -3,7 +3,7 @@ layout: post
 title: Apache Kafka Tips
 short_description: I decided to centralize the Apache Kafka commands and tool tips to help me access them quickly...
 date: 2024-01-03
-updated_at: 2024-02-13
+updated_at: 2024-04-22
 ---
 
 # Apache Kafka Tips
@@ -354,6 +354,15 @@ Or using JSON FILE
 
 ```
 # ./kafka-leader-election --bootstrap-server $kf_brokers --election-type preferred --path-to-json-file topic.json
+```
+
+* Get Topic Count
+
+```
+./kafka-run-class.sh kafka.tools.GetOffsetShell --bootstrap-server $kf_brokers --topic $topic --time -1
+./kafka-run-class.sh kafka.tools.GetOffsetShell --bootstrap-server $kf_brokers --topic $topic --time -2
+...
+# Pass --command-config <FILE-WITH-SSL-CONFIGs> for kafka auth's
 ```
 
 ## Consumer-groups
