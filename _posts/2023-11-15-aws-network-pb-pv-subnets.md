@@ -68,7 +68,7 @@ I really recommend uses IPCalc to make these calculations more efficiently. http
 
 ## Subnets
 
-![Subnets](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/aws-subnets.png)
+![Subnets](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/aws-subnets.png){:style="display: block; margin-left: auto; margin-right: auto;"}
 
 Subnets stand for a range of IP addresses in your VPC. There are many ways to use subnets, and each subnet must reside in a single Availability Zone.
 
