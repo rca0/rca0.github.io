@@ -125,7 +125,7 @@ The SQL JOIN is a command clause that combines records from two or more tables i
 
 * Differences Between INNER,LEFT,RIGHT and FULL JOIN
 
-![SQL Joins](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/sql-joins.png)
+![SQL Joins](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/sql-joins.png){:style="display: block; margin-left: auto; margin-right: auto;"}
 
 ### INNER
 

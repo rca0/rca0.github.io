@@ -26,7 +26,7 @@ Even if you are not closely involved with the network in your daily routine, kno
 
 A good analogy for a Network is like a building, where the foundation for construction is the stakes and the plumbing, just as it is for the network. Once this is done, it's very difficult to make major structural changes (but not impossible).
 
-![AWS Network](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/aws-network.png)
+![AWS Network](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/aws-network.png){:style="display: block; margin-left: auto; margin-right: auto;"}
 
 Let's get started
 
@@ -78,7 +78,7 @@ Subnets are utilized to enhance the security and efficiency of network commnunic
 
 ## Availability Zones - AZs
 
-![AZs](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/aws-azs.png)
+![AZs](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/aws-azs.png){:style="display: block; margin-left: auto; margin-right: auto;"}
 
 So, i mentioned Availability Zone, but what does that mean ?
 
@@ -94,7 +94,7 @@ Let's delve into more concepts (`Internet Gateway` and `NAT Gateway`), and then 
 
 ## Internet Gateway
 
-![Internet Gateway](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/aws-igw.png)
+![Internet Gateway](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/aws-igw.png){:style="display: block; margin-left: auto; margin-right: auto;"}
 
 An internet gateway is a horizontally scaled, redundant, and highly available VPC component that facilitates communication between your VPC and the internet. It supports both IPv4 and IPv6 traffic.
 
@@ -110,7 +110,7 @@ There is no charge for an internet gateway, but data transfer charges apply for 
 
 A NAT Gateway is a Network Address Translation (NAT) service used in instances within a private subnet that need to connect to services outside your VPC. However, external services cannot initiate a connection with those instances. This means I can reach out, for example, to update my packages, but nothing outside the VPC can come in and access the server.
 
-![NAT Gateway](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/aws-nat-gateway.png)
+![NAT Gateway](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/aws-nat-gateway.png){:style="display: block; margin-left: auto; margin-right: auto;"}
 
 When you provision a NAT gateway, you are charged for each hour it is available and for each gigabyte of data it processes. If most of the traffic through your NAT Gateway is to AWS Services, there are potential cost-saving procedures you can implement. Consider creating an interface endpoint or gateway endpoint for AWS services that support such endpoints.
 

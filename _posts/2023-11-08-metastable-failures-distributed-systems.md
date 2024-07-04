@@ -25,7 +25,7 @@ Phases of Metastable Failure:
 * Vulnerable: Once the load rises above a certain threshold (Isn’t an overloaded).
 * Metastable: The vulnerable system is healthy, but may fall into an unrecoverable metastable state due to a trigger.
 
-![metastable failures in distributed systems](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/metastable-failures.png)
+![metastable failures in distributed systems](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/metastable-failures.png){:style="display: block; margin-left: auto; margin-right: auto;"}
 
 Elastic systems are not immune to metastable failure states, but scaling up to maintain a capacity buffer reduces the vulnerability to most triggers.
 
