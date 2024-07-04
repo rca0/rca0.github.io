@@ -44,7 +44,7 @@ prometheus.MustRegister(cpuUsage)
 cpuUsage.Set(23.5) // setting the current CPU usage to 23.5%
 ```
 
-![Prometheus Gauge](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_gauge.png){: width="90%"}
+![Prometheus Gauge](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_gauge.png){:width="90%" style="display: block; margin-left: auto; margin-right: auto;"}
 
 ## Histogram Metric
 
@@ -75,7 +75,7 @@ prometheus.MustRegister(requestDuration)
 requestDuration.Observe(1.2) // observing a request duration of 1.2 seconds
 ```
 
-![Prometheus Histogram](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_histogram.png){: width="90%" style="display: block; margin-left: auto; margin-right: auto;"}
+![Prometheus Histogram](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_histogram.png){:width="80%" style="display: block; margin-left: auto; margin-right: auto;"}
 
 ## Summary Metric
 
@@ -106,7 +106,7 @@ prometheus.MustRegister(requestLatency)
 requestLatency.Observe(1.2) // observing a request latency of 1.2 seconds
 ```
 
-![Prometheus Summary](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_summary.png){: width="90%" style="display: block; margin-left: auto; margin-right: auto;"}
+![Prometheus Summary](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_summary.png){:width="80%" style="display: block; margin-left: auto; margin-right: auto;"}
 
 ## Counter Metric
 
@@ -137,4 +137,4 @@ requestCount.Inc() // increments the counter by 1
 requestCount.Add(5) // increments the counter by 5
 ```
 
-![Prometheus Counter](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_counter.png){: width="90%" style="display: block; margin-left: auto; margin-right: auto;"}
+![Prometheus Counter](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_counter.png){:width="80%" style="display: block; margin-left: auto; margin-right: auto;"}
