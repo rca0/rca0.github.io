@@ -71,3 +71,32 @@ prometheus.MustRegister(requestDuration)
 requestDuration.Observe(1.2) // observing a request duration of 1.2 seconds
 ```
 
+## Summary Metric
+
+Summaries are similar to histograms but also provide a total count and sum of observed values. They are useful for monitoring request latencies and other distributions where quantile estimation is needed.
+
+### Characteristics of Summaries
+
+1. **Quantile Calculation**: Summaries calculate configurable quantiles (e.g., 0.5, 0.9, 0.99) over a sliding time window, which makes them useful for latency measurements and other performance metrics.
+2. **Total Count and Sum**: Summaries maintain a total count of observations and the sum of all observed values, allowing you to calculate the average of the observations.
+3. **Sliding Window**: The quantiles are calculated over a configurable sliding time window, which helps in getting recent statistics without considering outdated data.
+
+### Example Usage
+
+Here is an example of how you might define and use a Summary in a Prometheus-compatible application:
+
+```go
+// Define a Summary
+var requestLatency = prometheus.NewSummary(prometheus.SummaryOpts{
+    Name:       "http_request_latency_seconds",
+    Help:       "A summary of the request latency.",
+    Objectives: map[float64]float64{0.5: 0.05, 0.9: 0.01, 0.99: 0.001},
+})
+
+// Register the Summary with Prometheus
+prometheus.MustRegister(requestLatency)
+
+// Observe a value
+requestLatency.Observe(1.2) // observing a request latency of 1.2 seconds
+```
+
