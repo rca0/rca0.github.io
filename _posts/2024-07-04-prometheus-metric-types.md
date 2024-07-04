@@ -7,7 +7,7 @@ date: 2024-07-04
 
 # Prometheus Metric Types
 
-Prometheus has a few metric type, which are;
+Prometheus has a few metric types, which are;
 
 **Gauge**: Fluctuating single numerical value that can go up and down.
 **Histogram**: A distribution view of bucketed observations.
