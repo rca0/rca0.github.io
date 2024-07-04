@@ -42,6 +42,8 @@ prometheus.MustRegister(cpuUsage)
 cpuUsage.Set(23.5) // setting the current CPU usage to 23.5%
 ```
 
+![Prometheus Gauge](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_gauge.png)
+
 ## Histogram Metric
 
 Histograms track the distribution of events over time. They are useful for measuring the statistical distribution of values, such as request durations or response sizes.
@@ -70,6 +72,8 @@ prometheus.MustRegister(requestDuration)
 // Observe a value
 requestDuration.Observe(1.2) // observing a request duration of 1.2 seconds
 ```
+
+![Prometheus Histogram](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_histogram.png)
 
 ## Summary Metric
 
@@ -100,6 +104,8 @@ prometheus.MustRegister(requestLatency)
 requestLatency.Observe(1.2) // observing a request latency of 1.2 seconds
 ```
 
+![Prometheus Summary](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_summary.png)
+
 ## Counter Metric
 
 Counters represent a cumulative value that only increases over time. It resets to zero on process restart. Typically, they are used to track the number of occurrences of an event, number of requests, errors, or completed tasks.
@@ -128,3 +134,5 @@ prometheus.MustRegister(requestCount)
 requestCount.Inc() // increments the counter by 1
 requestCount.Add(5) // increments the counter by 5
 ```
+
+![Prometheus Counter](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_counter.png)
