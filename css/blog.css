@@ -25,9 +25,3 @@ a {
 a:hover {
     color: #353535;
 }
-
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
