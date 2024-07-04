@@ -9,10 +9,10 @@ date: 2024-07-04
 
 Prometheus has a few metric type, which are;
 
-**Gauge**: Fluctuating single numerical value that can go up and down
-**Histogram**: A distribution view of bucketed observations
-**Summary**: Calculated quantiles over a sliding time window
-**Counter**: A cumulative count that only increases
+**Gauge**: Fluctuating single numerical value that can go up and down.
+**Histogram**: A distribution view of bucketed observations.
+**Summary**: Calculated quantiles over a sliding time window.
+**Counter**: A cumulative count that only increases.
 
 ## Gauge Metric
 
@@ -40,3 +40,34 @@ prometheus.MustRegister(cpuUsage)
 
 // Set the Gauge value
 cpuUsage.Set(23.5) // setting the current CPU usage to 23.5%
+```
+
+## Histogram Metric
+
+Histograms track the distribution of events over time. They are useful for measuring the statistical distribution of values, such as request durations or response sizes.
+
+### Characteristics of Histograms
+
+1. **Bucketed Observations**: Histograms work by categorizing observations into predefined buckets. Each bucket counts the number of observations that fall into a specific range.
+2. **Cumulative Counts**: Prometheus histograms maintain cumulative counts for each bucket, making it possible to derive the count of observations that fall into any specific range by subtracting the counts of adjacent buckets.
+3. **Sum of Observations**: Histograms also track the sum of all observed values, allowing you to calculate the average of the observations.
+
+### Example Usage
+
+Here is an example of how you might define and use a Histogram in a Prometheus-compatible application:
+
+```go
+// Define a Histogram
+var requestDuration = prometheus.NewHistogram(prometheus.HistogramOpts{
+    Name:    "http_request_duration_seconds",
+    Help:    "A histogram of the request duration.",
+    Buckets: prometheus.DefBuckets, // Default buckets provided by Prometheus
+})
+
+// Register the Histogram with Prometheus
+prometheus.MustRegister(requestDuration)
+
+// Observe a value
+requestDuration.Observe(1.2) // observing a request duration of 1.2 seconds
+```
+
