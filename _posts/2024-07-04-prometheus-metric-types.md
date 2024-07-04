@@ -42,7 +42,7 @@ prometheus.MustRegister(cpuUsage)
 cpuUsage.Set(23.5) // setting the current CPU usage to 23.5%
 ```
 
-![Prometheus Gauge](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_gauge.png)
+![Prometheus Gauge](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_gauge.png){: width="90%"}
 
 ## Histogram Metric
 
@@ -73,7 +73,7 @@ prometheus.MustRegister(requestDuration)
 requestDuration.Observe(1.2) // observing a request duration of 1.2 seconds
 ```
 
-![Prometheus Histogram](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_histogram.png)
+![Prometheus Histogram](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_histogram.png){: width="90%"}
 
 ## Summary Metric
 
@@ -104,7 +104,7 @@ prometheus.MustRegister(requestLatency)
 requestLatency.Observe(1.2) // observing a request latency of 1.2 seconds
 ```
 
-![Prometheus Summary](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_summary.png)
+![Prometheus Summary](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_summary.png){: width="90%"}
 
 ## Counter Metric
 
@@ -135,4 +135,4 @@ requestCount.Inc() // increments the counter by 1
 requestCount.Add(5) // increments the counter by 5
 ```
 
-![Prometheus Counter](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_counter.png)
+![Prometheus Counter](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_counter.png){: width="90%"}
