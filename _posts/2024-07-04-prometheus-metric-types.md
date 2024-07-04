@@ -100,3 +100,31 @@ prometheus.MustRegister(requestLatency)
 requestLatency.Observe(1.2) // observing a request latency of 1.2 seconds
 ```
 
+## Counter Metric
+
+Counters represent a cumulative value that only increases over time. It resets to zero on process restart. Typically, they are used to track the number of occurrences of an event, number of requests, errors, or completed tasks.
+
+### Characteristics of Counters
+
+1. **Monotonic Increase**: Counters only increase; they are never decremented. This makes them ideal for counting events.
+2. **Reset on Restart**: When the process restarts, the counter value resets to zero. Prometheus handles these resets gracefully, ensuring that the increase is tracked correctly over time.
+3. **Event Tracking**: Counters are used to measure the number of events, such as HTTP requests, errors, and task completions.
+
+### Example Usage
+
+Here is an example of how you might define and use a Counter in a Prometheus-compatible application:
+
+```go
+// Define a Counter
+var requestCount = prometheus.NewCounter(prometheus.CounterOpts{
+    Name: "http_requests_total",
+    Help: "A counter for the number of HTTP requests received.",
+})
+
+// Register the Counter with Prometheus
+prometheus.MustRegister(requestCount)
+
+// Increment the Counter
+requestCount.Inc() // increments the counter by 1
+requestCount.Add(5) // increments the counter by 5
+```
