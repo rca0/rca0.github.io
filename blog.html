@@ -22,10 +22,6 @@
                         <div class="item-content">
                             <p><a href="{{ post.url }}">{{ post.excerpt }}</a></p>
                             <p>{{ post.short_description }}</p>
-                            <p>posted_at: {{ post.date | date: "%Y-%m-%d" }}</p>
-                            {% if post.updated_at %}
-                            <p>updated_at: {{ post.updated_at | date: "%Y-%m-%d" }}</p>
-                            {% endif %}
                         </div>
                     </li>
                 {% endfor %}
