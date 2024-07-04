@@ -7,6 +7,8 @@ date: 2024-07-04
 
 # Prometheus Metric Types
 
+![Prometheus Histogram](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_logo.png){: width="90%"}
+
 Prometheus has a few metric types, which are;
 
 **Gauge**: Fluctuating single numerical value that can go up and down.
