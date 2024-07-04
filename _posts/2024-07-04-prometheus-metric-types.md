@@ -7,7 +7,7 @@ date: 2024-07-04
 
 # Prometheus Metric Types
 
-![Prometheus Histogram](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_logo.png){: width="90%"}
+![Prometheus](https://raw.githubusercontent.com/rca0/rca0.github.io/master/_posts/assets/prom_logo.png){:.centered}
 
 Prometheus has a few metric types, which are;
 
