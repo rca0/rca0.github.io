@@ -61,8 +61,8 @@ Here is an example of how you might define and use a Histogram in a Prometheus-c
 ```go
 // Define a Histogram
 var requestDuration = prometheus.NewHistogram(prometheus.HistogramOpts{
-    Name:    "http_request_duration_seconds",
-    Help:    "A histogram of the request duration.",
+    Name:    "node_request_duration_seconds",
+    Help:    "A histogram of the node request duration.",
     Buckets: prometheus.DefBuckets, // Default buckets provided by Prometheus
 })
 
