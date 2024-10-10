@@ -385,7 +385,7 @@ Or using JSON FILE
 ./kafka-consumer-groups.sh --bootstrap-server $kf_brokers --describe --group $consumer_group_name --verbose
 ```
 
-* Reset offsets to latest
+* Reset offset pointer to latest
 
 ```bash
 # dry-run
@@ -393,6 +393,16 @@ Or using JSON FILE
 
 # execute
 ./kafka-consumer-groups.sh --bootstrap-server $kf_brokers --topic $topic_name:$partition_number --group $group_name --reset-offsets --to-latest --execute
+```
+
+* Reset offset pointer to beginning 
+
+```bash
+# dry-run
+./kafka-consumer-groups.sh --bootstrap-server $kf_brokers --topic $topic_name:$partition_number --group $group_name --reset-offsets --to-earliest --dry-run
+
+# execute
+./kafka-consumer-groups.sh --bootstrap-server $kf_brokers --topic $topic_name:$partition_number --group $group_name --reset-offsets --to-earliest --execute
 ```
 
 ## Producer
