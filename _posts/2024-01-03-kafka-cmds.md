@@ -89,7 +89,7 @@ time kafka-producer-perf-test --producer-props bootstrap.servers=$kf_brokers \
 ```bash
 ./kafka-configs.sh --bootstrap-server $kf_brokers \
     --alter \
-    --entity-name $topic_name \
+    --entity-name $topic \
     --entity-type topics \
     --add-config \
     --partitions 6
@@ -115,7 +115,7 @@ time kafka-producer-perf-test --producer-props bootstrap.servers=$kf_brokers \
 ```bash
 ./kafka-configs.sh --bootstrap-server $kf_brokers \
     --alter \
-    --entity-name $topic_name \
+    --entity-name $topic \
     --entity-type topics \
     --replica-placement topic-reg.cfg
 ```
@@ -125,7 +125,7 @@ time kafka-producer-perf-test --producer-props bootstrap.servers=$kf_brokers \
 ```bash
 ./kafka-configs.sh --bootstrap-server $kf_brokers \
     --alter \
-    --entity-name $topic_name \
+    --entity-name $topic \
     --entity-type topics \
     --add-config \
     x=y
@@ -136,7 +136,7 @@ time kafka-producer-perf-test --producer-props bootstrap.servers=$kf_brokers \
 ```bash
 ./kafka-configs.sh --bootstrap-server $kf_brokers \
     --alter \
-    --entity-name $topic_name \
+    --entity-name $topic \
     --entity-type topics \
     --delete-config \
     x=y
@@ -147,25 +147,25 @@ time kafka-producer-perf-test --producer-props bootstrap.servers=$kf_brokers \
 * Consume a topic offset
 
 ```bash
-./kafka-console-consumer.sh --bootstrap-server $kf_brokers --topic $topic_name
+./kafka-console-consumer.sh --bootstrap-server $kf_brokers --topic $topic
 ```
 
 * Consumer a topic offset using key and value
 
 ```bash
-./kafka-console-consumer --bootstrap-server $kf_brokers --topic $topic_name --formatter kafka.tools.DefaultMessageFormatter --property print.timestamp=true --property print.key=true --property print.value=true
+./kafka-console-consumer --bootstrap-server $kf_brokers --topic $topic --formatter kafka.tools.DefaultMessageFormatter --property print.timestamp=true --property print.key=true --property print.value=true
 ```
 
 * Consumer a topic from the beginning
 
 ```bash
-./kafka-console-consumer.sh --bootstrap-server $kf_brokers --topic $topic_name --from-beginning
+./kafka-console-consumer.sh --bootstrap-server $kf_brokers --topic $topic --from-beginning
 ```
 
 * Create new topic
 
 ```bash
-kafka-topics --bootstrap-server $kf_brokers --create --topic $topic_name --partitions $parition_number --replication-factor $replica_factor --config retention.ms=$retention_time --config segment.ms=10000
+kafka-topics --bootstrap-server $kf_brokers --create --topic $topic --partitions $parition_number --replication-factor $replica_factor --config retention.ms=$retention_time --config segment.ms=10000
 
 # tips
 # --if-not-exists use this parameter if not exists
@@ -174,7 +174,7 @@ kafka-topics --bootstrap-server $kf_brokers --create --topic $topic_name --parti
 * Create new topic with constraints
 
 ```bash
-kafka-topics --bootstrap-server $kf_brokers --create --topic $topic_name --partitions $parition_number --replication-factor $replica_factor --replica-placement /etc/kafka/topic-reg.cfg
+kafka-topics --bootstrap-server $kf_brokers --create --topic $topic --partitions $parition_number --replication-factor $replica_factor --replica-placement /etc/kafka/topic-reg.cfg
 ```
 
 * List topics
@@ -186,36 +186,36 @@ kafka-topics --bootstrap-server $kf_brokers --create --topic $topic_name --parti
 * Describe topic
 
 ```bash
-./kafka-topics --bootstrap-server $kf_brokers --topic $topic_name --describe 
+./kafka-topics --bootstrap-server $kf_brokers --topic $topic --describe 
 ```
 
 * Show partitions offsets of a Topic
 
 ```bash
-./kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list $kf_brokers --topic $topic_name
+./kafka-run-class.sh kafka.tools.GetOffsetShell --broker-list $kf_brokers --topic $topic
 ```
 
 * Show specific topic configuration overrides
 
 ```bash
-./kafka-topics.sh --bootstrap-server $kf_brokers --describe --entity-type topics --entity-name $topic_name
+./kafka-topics.sh --bootstrap-server $kf_brokers --describe --entity-type topics --entity-name $topic
 ```
 
 * Delete a Topic
 
 ```bash
-./kafka-topics.sh --bootstrap-server $kf_brokers --delete --topic $topic_name
+./kafka-topics.sh --bootstrap-server $kf_brokers --delete --topic $topic
 ```
 
 * Remove topic from Consumer Group
 ```bash
-./kafka-consumer-groups.sh --bootstrap-server $kf_brokers --group $consumer_group_name --topic $topic_name --delete
+./kafka-consumer-groups.sh --bootstrap-server $kf_brokers --group $consumer_group_name --topic $topic --delete
 ```
 
 * Change Topic partition number
 
 ```bash
-./kafka-topics.sh --bootstrap-server $kf_brokers --alter --topic $topic_name --partitions $partition_number
+./kafka-topics.sh --bootstrap-server $kf_brokers --alter --topic $topic --partitions $partition_number
 ```
 
 * Find all the partitions where are not in-sync with the Leader
@@ -295,10 +295,10 @@ _For OLD Kafka version, use `--zookeeper` instead of `--bootstrap-server` argume
 # log.retention.ms=-1 
 # -1 means it is infinte...
 
-./kafka-configs.sh --bootstrap-server $kf_brokers --alter --entity-name $topic_name --entity-type topics --add-config retention.ms=$retention_time
+./kafka-configs.sh --bootstrap-server $kf_brokers --alter --entity-name $topic --entity-type topics --add-config retention.ms=$retention_time
 
 # then validate the topic settings
-./kafka-topics.sh --describe --ootstrap-server $kf_brokers --topic $topic_name
+./kafka-topics.sh --describe --ootstrap-server $kf_brokers --topic $topic
 ```
 
 * Purge Topics offsets by retention time ms
@@ -306,7 +306,7 @@ _For OLD Kafka version, use `--zookeeper` instead of `--bootstrap-server` argume
 As a workaround, change the retention to one minute. This allows you to purge the offsets quickly, and then you can simply return the retention time to its original setting.
 
 ```bash
-./kafka-configs.sh --bootstrap-server $kf_brokers --alter --entity-type topics --entity-name $topic_name --add-config retention.ms=1000
+./kafka-configs.sh --bootstrap-server $kf_brokers --alter --entity-type topics --entity-name $topic --add-config retention.ms=1000
 ```
 
 * Remove Offsets from a Partition of a Topic
@@ -389,20 +389,20 @@ Or using JSON FILE
 
 ```bash
 # dry-run
-./kafka-consumer-groups.sh --bootstrap-server $kf_brokers --topic $topic_name:$partition_number --group $group_name --reset-offsets --to-latest --dry-run
+./kafka-consumer-groups.sh --bootstrap-server $kf_brokers --topic $topic:$partition_number --group $group_name --reset-offsets --to-latest --dry-run
 
 # execute
-./kafka-consumer-groups.sh --bootstrap-server $kf_brokers --topic $topic_name:$partition_number --group $group_name --reset-offsets --to-latest --execute
+./kafka-consumer-groups.sh --bootstrap-server $kf_brokers --topic $topic:$partition_number --group $group_name --reset-offsets --to-latest --execute
 ```
 
 * Reset offset pointer to beginning 
 
 ```bash
 # dry-run
-./kafka-consumer-groups.sh --bootstrap-server $kf_brokers --topic $topic_name:$partition_number --group $group_name --reset-offsets --to-earliest --dry-run
+./kafka-consumer-groups.sh --bootstrap-server $kf_brokers --topic $topic:$partition_number --group $group_name --reset-offsets --to-earliest --dry-run
 
 # execute
-./kafka-consumer-groups.sh --bootstrap-server $kf_brokers --topic $topic_name:$partition_number --group $group_name --reset-offsets --to-earliest --execute
+./kafka-consumer-groups.sh --bootstrap-server $kf_brokers --topic $topic:$partition_number --group $group_name --reset-offsets --to-earliest --execute
 ```
 
 ## Producer
@@ -410,16 +410,16 @@ Or using JSON FILE
 * Produce message to a topic
 
 ```bash
-./kafka-console-producer.sh --broker-list $kf_brokers --topic $topic_name
+./kafka-console-producer.sh --broker-list $kf_brokers --topic $topic
 
 # from a file
-./kafka-console-producer.sh --broker-list $kf_brokers --topic $topic_name < input-messages.txt
+./kafka-console-producer.sh --broker-list $kf_brokers --topic $topic < input-messages.txt
 ```
 
 * Produce message to a topic using key and value
 
 ```bash
-kafka-console-producer.sh --broker-list $kf_brokers --topic $topic_name --property parse.key=true 
+kafka-console-producer.sh --broker-list $kf_brokers --topic $topic --property parse.key=true 
 --property key.separator=:
 
 # e.g.
@@ -451,7 +451,7 @@ kafka-console-producer.sh --broker-list $kf_brokers --topic $topic_name --proper
 - Get details of specific topic
 
 ```bash
-./zookeeper-shell $zookeeper_broker:2181 get /brokers/topics/$topic_name
+./zookeeper-shell $zookeeper_broker:2181 get /brokers/topics/$topic
 ```
 
 - Check if zookeeper is healthy or not
@@ -590,7 +590,7 @@ kaf topics
 * Describe topics
 
 ```bash
-kaf topics describe $topic_name
+kaf topics describe $topic
 ```
 
 * List Consumer-groups
@@ -608,32 +608,49 @@ kaf group describe $consumer_group_name
 * Consume topic message from oldest
 
 ```bash
- kaf consume $topic_name --raw --offset oldest | grep "ID-TO-FILTER"
+ kaf consume $topic --raw --offset oldest | grep "ID-TO-FILTER"
 ```
 
 * Consume topic message from earliest
 
 ```bash
- ./kaf consume $topic_name --raw --offset oldest | grep "ID-TO-FILTER"
+ ./kaf consume $topic --raw --offset oldest | grep "ID-TO-FILTER"
 ```
 
 * Offset Reset to latest for all partitions
 
 ```bash
-kaf group commit $consumer_group_name -t $topic_name --offset latest --all-partitions
+kaf group commit $consumer_group_name -t $topic --offset latest --all-partitions
 ```
 
 * Set offset to oldest
 
 ```bash
-kaf group commit $consumer_group_name -t $topic_name --offset oldest --all-partitions
+kaf group commit $consumer_group_name -t $topic --offset oldest --all-partitions
 ```
 
 * Set offset to 1001 for partition 0
 
 ```bash
-kaf group commit $consumer_group_name -t $topic_name --offset 1001 --partition 0
+kaf group commit $consumer_group_name -t $topic --offset 1001 --partition 0
 ```
 
+## Kafkacat
 
+* You can download kafkacat src or use it with docker 
 
+```bash
+docker run -it --rm confluentinc/cp-kafkacat:7.1.1 /bin/bash
+```
+
+* Pick up the offset number of the first message on the topic for today
+
+```bash
+kafkacat -C -b $kf_brokers -t $topic -o- s@$(date -d "today 00:00" +%s%3N) -o e@1729779300000
+```
+
+```bash
+kafkacat -Q -b $kf_brokers -t $topic:$partition:$time -c 1
+```
+
+NOTE: The 1729779300000 is time from epoch...
