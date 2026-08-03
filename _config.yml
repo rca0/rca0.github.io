@@ -25,16 +25,16 @@ collections:
 
 # Site settings
 name: Ruan C. Arcega
-title: ruanc.dev
+title: rca0.github.io
 description: "DevOps Engineer"
-url: "https://ruanc.dev"
+url: "https://rca0.github.io"
 
 # Delete the lines you don't need
 # about 5 elements are recomended
 github_username: rca0
 twitter_username: RuanArcega
 linkedin_username: ruanc
-email: me@ruanc.dev
+email: ruanarcega@gmail.com
 
 avatar: yes
 avatar_img_path: "https://github.com/rca0.png"
